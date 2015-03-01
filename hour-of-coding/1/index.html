@@ -1,0 +1,128 @@
+<!-- blogPosts:text[] -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en">
+<head>
+  <title>Michael's blog</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="../../static/main.css">
+  <link rel="stylesheet" type="text/css" href="../../static/typeplate.css">
+  <link rel="stylesheet" type="text/css" href="../../static/highlight/styles/solarized_dark.css">  
+  <script type="text/javascript"  src="../../static/jquery.min.js"></script>
+  <script type="text/javascript"  src="../../static/main.js"></script>
+  <script type="text/javascript"  src="../../static/highlight/highlight.pack.js"></script>
+  
+</head>
+<body>
+  <div class="mainSection">
+    <div id="navigation">
+      <div id="gertruda">
+	<a href="../../Contacts/index.html" class="stripHREF" id="symbol">
+	</a>
+	<div id="slogan">
+	</div>
+      </div>
+      <div id="spacer"></div>	
+
+      <!-- tag.name:string -->
+<!-- tag.size:number -->
+<!-- tagsList:tag[] -->
+<!-- selectedTagSet:set<string> -->
+
+<div class="tagContainer">
+  
+    
+      
+    		   
+
+    
+      <a class="tag smallTag stripHREF " href="../../notForPeople/index.html" style="font-size:14px;">notForPeople</a>
+    
+  
+    
+      
+    		   
+
+    
+      <a class="tag smallTag stripHREF " href="../../Contacts/index.html" style="font-size:14px;">Contacts</a>
+    
+  
+    
+      		   
+    		   
+
+    
+      <a class="tag bigTag stripHREF " href="../../python/index.html" style="font-size:36px;">python</a>
+    
+  
+    
+      		   
+    		   
+
+    
+      <span class="tag tag__selected stripHREF bigTag" href="../index.html" style="font-size:36px;">hour-of-coding</span>
+    
+  
+    
+      
+    		   
+
+    
+      <a class="tag smallTag stripHREF " href="../../markdown-tutorial/index.html" style="font-size:14px;">markdown-tutorial</a>
+    
+  
+    
+      		   
+    		   
+
+    
+      <a class="tag bigTag stripHREF " href="../../jinja2/index.html" style="font-size:36px;">jinja2</a>
+    
+  
+    
+      
+    		   
+
+    
+      <a class="tag smallTag stripHREF " href="../../Hello/index.html" style="font-size:14px;">Hello</a>
+    
+  
+</div>    
+    </div>
+    <div id="content">
+      <!-- <h3>Hello I am Michael. I write stuff and play piano</h3> -->
+      
+<div class="blogPost">
+  <h1>This blog engine</h1>
+<p><em>Hello. This is one hour of coding contest.</em>
+During this contest, I indend to write something useful for about an  hour.</i>
+This blog engine  was made exactly at one hour, and 23 minutes.
+During  this time I:
+  1. Thought out the design and concept of blog
+  2. Studied jinja2 and flask frameworks
+  3. Studied ways of calculation tag sizes in a cloud
+  4. Implemented tagging system
+  5. Implemented some beautify tricks with jquery
+  6. Made design,and impleneted it
+  7. Debugged the result.<br />
+<strong>Estimated time 83  minutes.</strong>
+  <strong>Estimated LOC 432 </strong>
+Architecture of system is pretty straightForward.
+I have a file, called tagging_hierarchy.py. It contains the following struct
+<code>python
+  SYSTEM_NAV = {
+    "python":{"firstBlogPost.html"},
+    "hour-of-coding":{"anther"},
+    "ruby":{}
+    e.t.c
+  }</code>
+Here name is a category, and set contains  blog post html or markdown files.
+That is it. Very simple  straightforward, and easy to deploy in a static environment.
+P.S
+ * I  am now working on system, that resembles similar concepts
+ * Other things are pasted on github. Please be my guests.</p>
+</div>
+
+    </div>
+  </div>    
+</body>
+</html>
