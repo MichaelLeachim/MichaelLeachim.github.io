@@ -1,0 +1,125 @@
+<!-- blogPosts:text[] -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en">
+<head>
+  <title>Michael's blog</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="../../static/main.css">
+  <link rel="stylesheet" type="text/css" href="../../static/typeplate.css">
+  <link rel="stylesheet" type="text/css" href="../../static/highlight/styles/solarized_dark.css">  
+  <script type="text/javascript"  src="../../static/jquery.min.js"></script>
+  <script type="text/javascript"  src="../../static/main.js"></script>
+  <script type="text/javascript"  src="../../static/highlight/highlight.pack.js"></script>
+  
+</head>
+<body>
+  <div class="mainSection">
+    <div id="navigation">
+      <div id="gertruda">
+	<a href="../../Contacts/index.html" class="stripHREF" id="symbol">
+	</a>
+	<div id="slogan">
+	</div>
+      </div>
+      <div id="spacer"></div>	
+
+      <!-- tag.name:string -->
+<!-- tag.size:number -->
+<!-- tagsList:tag[] -->
+<!-- selectedTagSet:set<string> -->
+
+<div class="tagContainer">
+  
+    
+      		   
+    		   
+
+    
+      <a class="tag bigTag stripHREF " href="../../python/index.html" style="font-size:25px;">python</a>
+    
+  
+    
+      		   
+    		   
+
+    
+      <a class="tag bigTag stripHREF " href="../../hour-of-coding/index.html" style="font-size:25px;">hour-of-coding</a>
+    
+  
+    
+      		   
+    		   
+
+    
+      <span class="tag tag__selected stripHREF bigTag" href="../index.html" style="font-size:25px;">jinja2</span>
+    
+  
+    
+      		   
+    		   
+
+    
+      <a class="tag bigTag stripHREF " href="../../Hello/index.html" style="font-size:25px;">Hello</a>
+    
+  
+    
+      		   
+    		   
+
+    
+      <a class="tag bigTag stripHREF " href="../../Contacts/index.html" style="font-size:25px;">Contacts</a>
+    
+  
+</div>    
+    </div>
+    <div id="content">
+      <!-- <h3>Hello I am Michael. I write stuff and play piano</h3> -->
+      
+<div class="blogPost">
+  <h4>One hour of coding.</h4>
+<blockquote>
+<p>During this contest, I indend to write something useful for about an  hour.
+This blog engine  was made exactly at one hour, and 23 minutes.
+During  this time I:</p>
+</blockquote>
+<ol>
+<li>Thought out the design and concept of blog</li>
+<li>Studied jinja2 and flask frameworks</li>
+<li>Studied ways of calculation tag sizes in a cloud</li>
+<li>Implemented tagging system</li>
+<li>Implemented some beautify tricks with jquery</li>
+<li>Made design,and impleneted it</li>
+<li>Debugged the result.</li>
+<li>Figured out how to use <em>Flask-static</em></li>
+<li>Deployed it to github</li>
+</ol>
+<p><strong>Estimated time is 83  minutes.</strong></p>
+<h5>Here goes architectural overview</h5>
+<p>In settings I've got navigation struct, like this:
+<code>{
+  "hello.html":           {"date":"2015.02.28","tags":{"Hello","Contacts"},"posted":True},
+  "firstBlogPost.html":   {"date":"2015.02.28","tags":{"hour-of-coding", "python","jinja2"},"posted":True},
+  "testPost.html":        {"date":"2015.02.28","tags":{"hour-of-coding", "python","jinja2"},"posted":True},
+  "howToUseMarkDown.html":{"date":"2015.02.28","tags":{"markdown-tutorial","notForPeople"}, "posted":True},
+  }</code>
+Here <strong>key</strong> is a category, and <strong>set tags</strong> contains  possible categories for this kind of blogpost.</p>
+<p><code>{% filter markdown %}
+  My beautiful markdown
+{% endfilter %}</code></p>
+<p>It is done like this, to have the ability implementing something, that is not possible in markdown.</p>
+<p>That is it. Very simple  straightforward, and easy to deploy in a static environment.</p>
+<p>This blogEngine was definitely not possible without  <em>typeplate</em>,<em>flask</em>,<em>jQuery</em>,<em>neat</em>,<em>bourbon</em> and lots of other free libraries.</p>
+<p>Todo related to this project:</p>
+<ul>
+<li>Flush this blogEngine to github</li>
+<li>Change fixed left side, to make it work properly on different screens</li>
+<li>Write some docs on it.</li>
+</ul>
+<p>There was some gotchas, that I will explain in other blogposts</p>
+<p>P.S I  am now working on system, that resembles similar concepts, called metator-tagger. </p>
+</div>
+
+    </div>
+  </div>    
+</body>
+</html>
