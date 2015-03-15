@@ -4,19 +4,19 @@
 <head>
   <title>Michael's blog</title>
   <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="../static/main.css">
-  <link rel="stylesheet" type="text/css" href="../static/typeplate.css">
-  <link rel="stylesheet" type="text/css" href="../static/highlight/styles/solarized_dark.css">  
-  <script type="text/javascript"  src="../static/jquery.min.js"></script>
-  <script type="text/javascript"  src="../static/main.js"></script>
-  <script type="text/javascript"  src="../static/highlight/highlight.pack.js"></script>
+  <link rel="stylesheet" type="text/css" href="../../static/main.css">
+  <link rel="stylesheet" type="text/css" href="../../static/typeplate.css">
+  <link rel="stylesheet" type="text/css" href="../../static/highlight/styles/solarized_dark.css">  
+  <script type="text/javascript"  src="../../static/jquery.min.js"></script>
+  <script type="text/javascript"  src="../../static/main.js"></script>
+  <script type="text/javascript"  src="../../static/highlight/highlight.pack.js"></script>
   
 </head>
 <body>
   <div class="mainSection">
     <div id="navigation">
       <div id="gertruda">
-	<a href="../index.html" class="stripHREF" id="symbol">
+	<a href="../../index.html" class="stripHREF" id="symbol">
 	</a>
 	<div id="slogan">
 	</div>
@@ -35,7 +35,7 @@
     		   
 
     
-      <a class="tag smallTag stripHREF " href="../index.html" style="font-size:14px;">Contacts</a>
+      <a class="tag smallTag stripHREF " href="../../index.html" style="font-size:14px;">Contacts</a>
     
   
     
@@ -43,7 +43,7 @@
     		   
 
     
-      <a class="tag smallTag stripHREF " href="../python/index.html" style="font-size:14px;">python</a>
+      <a class="tag smallTag stripHREF " href="../../python/index.html" style="font-size:14px;">python</a>
     
   
     
@@ -51,7 +51,7 @@
     		   
 
     
-      <a class="tag smallTag stripHREF " href="../hour-of-coding/index.html" style="font-size:14px;">hour-of-coding</a>
+      <a class="tag smallTag stripHREF " href="../../hour-of-coding/index.html" style="font-size:14px;">hour-of-coding</a>
     
   
     
@@ -67,7 +67,7 @@
     		   
 
     
-      <a class="tag smallTag stripHREF " href="../jinja2/index.html" style="font-size:14px;">jinja2</a>
+      <a class="tag smallTag stripHREF " href="../../jinja2/index.html" style="font-size:14px;">jinja2</a>
     
   
     
@@ -75,7 +75,7 @@
     		   
 
     
-      <a class="tag smallTag stripHREF " href="../Hello/index.html" style="font-size:14px;">Hello</a>
+      <a class="tag smallTag stripHREF " href="../../Hello/index.html" style="font-size:14px;">Hello</a>
     
   
 </div>    
@@ -83,28 +83,8 @@
     <div id="content">
       <!-- <h3>Hello I am Michael. I write stuff and play piano</h3> -->
       
-  
-    <!-- text:string -->
-    <div class="blogPost">
-      <div class="header">
-        <span class="content__halfLineLeft"></span>
-        <a href="0/index.html" class="content__Symbol stripHREF">&infin;</a>
-        <span class="content__halfLineRight"></span>
-
-       	<div class="blogPostTags">
-       	  
-            
-              <span class="tagInLine__selected stripHREF" href="/static-typing/">static-typing</span>
-              
-       	  
-       	</div>
-	<div class="dateElement">
-	  2015.03.15
-	</div>
-
-      </div>
-      <div class="postContent buttonFinder">
-        <h3>Why typescript</h3>
+<div class="blogPost">
+  <h3>Why typescript</h3>
 <p>Recently, I changed my main  work environment in  browser from <em>coffeescript</em> to <em>typescript</em>.
 Here I am to tell why. And about my  work environment.</p>
 <h4>Coffee advatages over typescript</h4>
@@ -249,70 +229,7 @@ And then, every subsystem just use these from related <em>d.ts</em> files. As th
 
 
 
-      </div>
-      <button class="openMore__button">&dArr;</button>
-    </div>
-  
-    <!-- text:string -->
-    <div class="blogPost">
-      <div class="header">
-        <span class="content__halfLineLeft"></span>
-        <a href="1/index.html" class="content__Symbol stripHREF">&infin;</a>
-        <span class="content__halfLineRight"></span>
-
-       	<div class="blogPostTags">
-       	  
-            
-              <span class="tagInLine__selected stripHREF" href="/static-typing/">static-typing</span>
-              
-       	  
-       	</div>
-	<div class="dateElement">
-	  2015.03.14
-	</div>
-
-      </div>
-      <div class="postContent buttonFinder">
-        <h3>My evolution from dynamic to static typing.</h3>
-<p>I have been "dynamic" for the most of my career in programming(Which is not a lot,for about 3 years of actual development in python and js.)</p>
-<p>Being dynamic was not because of some conscious decision.</p>
-<p>Just, when you start programming(having no CS background) dynamic typing seems less mundane, and more appealing for someone outside of development.</p>
-<p>Now, nearly a month ago I switched my preferences to static typing languages, and here I am to explain why.</p>
-<p>During my work, I found out,and, I sure, most of software engineers do, that  programming mostly
-is not about crunching numbers,  but about connection in general.</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>I would formulate this software development principle  as knowledge about connection and composition.</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<h4>Let me elaborate.</h4>
-<p>When You are writing a new program it is about 80% of connection other people code in a new way than about writing some genuinely new code.
-So that is why, program language  matter less than  having good  libraries for any possible case.</p>
-<p>This principle directly applies to static typing.
-Because static  typing <em>is</em>  about  connecting things. And compiler will tell you, if you connected them wrong.
-For example:</p>
-<ul>
-<li>It is not about withdraw(account_id:number,sum:number).</li>
-<li>It is about withdraw(account:Account,sum:MoneyManager).</li>
-</ul>
-<p>In the second case, you defined what Account is, and what MoneyManager is.</p>
-<p>And withdraw will only work on accounts, and MoneyManagers.</p>
-<p>So, when You forgot, what is withdraw about, You can always look at signature, look at definition of account and sum.
-It allows you to write deeper programs, you are not restricted in connecting things just by numbers and strings. 
-And you will never mistake pipes. And if you will, compiler will tell you about it.
-I deliberately do not mention obvious:</p>
-<ul>
-<li>IDE support</li>
-<li>ease of understanding</li>
-<li>speed of compiled program</li>
-</ul>
-<p>Because everybody already knows that.</p>
-      </div>
-      <button class="openMore__button">&dArr;</button>
-    </div>
-    
+</div>
 
     </div>
   </div>    
