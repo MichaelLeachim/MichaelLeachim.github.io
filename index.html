@@ -51,7 +51,7 @@
     		   
 
     
-      <a class="tag smallTag stripHREF " href="hour-of-coding/index.html" style="font-size:14px;">hour-of-coding</a>
+      <a class="tag smallTag stripHREF " href="scraping/index.html" style="font-size:14px;">scraping</a>
     
   
     
@@ -75,7 +75,15 @@
     		   
 
     
-      <a class="tag smallTag stripHREF " href="scraping/index.html" style="font-size:14px;">scraping</a>
+      <a class="tag smallTag stripHREF " href="play-video/index.html" style="font-size:14px;">play-video</a>
+    
+  
+    
+      
+    		   
+
+    
+      <a class="tag smallTag stripHREF " href="hour-of-coding/index.html" style="font-size:14px;">hour-of-coding</a>
     
   
     
@@ -94,6 +102,14 @@
       <a class="tag smallTag stripHREF " href="Hello/index.html" style="font-size:14px;">Hello</a>
     
   
+    
+      
+    		   
+
+    
+      <a class="tag smallTag stripHREF " href="tutorial/index.html" style="font-size:14px;">tutorial</a>
+    
+  
 </div>    
     </div>
     <div id="content">
@@ -105,6 +121,122 @@
       <div class="header">
         <span class="content__halfLineLeft"></span>
         <a href="http://127.0.0.1:5000/0/" class="content__Symbol stripHREF">&infin;</a>
+        <span class="content__halfLineRight"></span>
+
+       	<div class="blogPostTags">
+       	  
+            
+     	      <a class="tagInline stripHREF" href="tutorial/index.html">tutorial</a>
+      	      
+       	  
+            
+     	      <a class="tagInline stripHREF" href="play-video/index.html">play-video</a>
+      	      
+       	  
+       	</div>
+	<div class="dateElement">
+	  2015.04.08
+	</div>
+
+      </div>
+      <div class="postContent buttonFinder">
+        <h3>How to watch video from your computer on every device at home without downloading it.[in two steps]</h3>
+<h4>Why ?</h4>
+<p>I usually watch movies and read books from my android phone and tablet.
+So I decided, it would be great if I could use my main hard disk and share it to the network.
+I came across this method accidentally. And it showed itself very useful.</p>
+<h4>So, You will Need</h4>
+<ol>
+<li>Linux computer. Preferably Debian</li>
+<li>Android device</li>
+<li>Standart wifi router </li>
+<li>A little patience</li>
+</ol>
+<h4>Let's go on. Step one. Installation.</h4>
+<p>You will definitely need nginx server. It showed itself pretty decent on even old computers.
+Install it like this.
+<code>sudo apt-get install nginx</code>
+You will probably need ffmpeg file converter. Install it like this
+<code>sudo apt-get install ffmpeg</code>
+You will need media player. Install <strong>vlc media player</strong> on your android device.</p>
+<h5>Step two. Configuring nginx</h5>
+<p>Let's have our hands a little bit dirty. Execute next commands
+<code>sudo -s
+cd /etc/nginx/sites-enabled
+touch home-shared</code>
+Put in file <em>home-shared</em> configuration like this:
+<code>server {
+    listen 80;
+    location / {
+      autoindex on;
+      root /home/mik/shared;
+    }
+  }</code>
+Where <strong>root</strong> is <em>absolute path to your shared folder</em>
+It would go like this
+<code>echo "server {
+    listen 80;
+    location / {
+      autoindex on;
+      root /home/mik/shared;
+    }
+  }" &gt; home-shared</code>
+Restart your nginx server by:
+<code>/etc/init.d/nginx restart</code>
+In your browser, go to <em>127.0.0.1</em>.
+You must see something like this. </p>
+<hr />
+<h2><img src="static/public/howTo__video.png"></img></h2>
+<p>Now, You must try to see this with another computer in your network.
+Your ip address you can see like this
+<code>sudo ifconfig | grep "inet addr"</code>
+Select that one wich starts with <strong>192.168.1.</strong>
+Go to your android device. Or to another computer. And type into address bar that ip. Like this.</p>
+<hr />
+<h2><img src="static/public/how_to_see.png"></img></h2>
+<p>If you see directory content. Congratulations.
+If you don't, try disabling your firewall.
+Now You can put any video into that directory. And <strong>vlc</strong> from your android device will play it on the fly.</p>
+<hr />
+<p>In the next part of this tutorial  I will tell how to convert fast any video, so you can feed it to vlc without any problems.</p>
+<hr />
+<p>I always can be wrong, or not having known something important. If you find an error, please tell me  at mklimoff222 at gmail.com.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+      <button class="openMore__button">&dArr;</button>
+    </div>
+  
+    <!-- text:string -->
+    <div class="blogPost">
+      <div class="header">
+        <span class="content__halfLineLeft"></span>
+        <a href="http://127.0.0.1:5000/1/" class="content__Symbol stripHREF">&infin;</a>
         <span class="content__halfLineRight"></span>
 
        	<div class="blogPostTags">
@@ -628,7 +760,7 @@ Result will look somehow like this. I intentionally omit other tables. It can be
     <div class="blogPost">
       <div class="header">
         <span class="content__halfLineLeft"></span>
-        <a href="http://127.0.0.1:5000/1/" class="content__Symbol stripHREF">&infin;</a>
+        <a href="http://127.0.0.1:5000/2/" class="content__Symbol stripHREF">&infin;</a>
         <span class="content__halfLineRight"></span>
 
        	<div class="blogPostTags">
@@ -797,7 +929,7 @@ And then, every subsystem just use these from related <em>d.ts</em> files. As th
     <div class="blogPost">
       <div class="header">
         <span class="content__halfLineLeft"></span>
-        <a href="http://127.0.0.1:5000/2/" class="content__Symbol stripHREF">&infin;</a>
+        <a href="http://127.0.0.1:5000/3/" class="content__Symbol stripHREF">&infin;</a>
         <span class="content__halfLineRight"></span>
 
        	<div class="blogPostTags">
@@ -857,7 +989,7 @@ I deliberately do not mention obvious:</p>
     <div class="blogPost">
       <div class="header">
         <span class="content__halfLineLeft"></span>
-        <a href="http://127.0.0.1:5000/3/" class="content__Symbol stripHREF">&infin;</a>
+        <a href="http://127.0.0.1:5000/4/" class="content__Symbol stripHREF">&infin;</a>
         <span class="content__halfLineRight"></span>
 
        	<div class="blogPostTags">
@@ -938,7 +1070,7 @@ I have  B.Sc in economics and I play piano.</p>
     <div class="blogPost">
       <div class="header">
         <span class="content__halfLineLeft"></span>
-        <a href="http://127.0.0.1:5000/4/" class="content__Symbol stripHREF">&infin;</a>
+        <a href="http://127.0.0.1:5000/5/" class="content__Symbol stripHREF">&infin;</a>
         <span class="content__halfLineRight"></span>
 
        	<div class="blogPostTags">
