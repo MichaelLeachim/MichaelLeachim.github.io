@@ -71,6 +71,9 @@ html {
   .HTMLContainer:last-child {
     margin-right: 0; }
 
+code {
+  text-indent: 0em !important; }
+
 .blogPost {
   max-width: 68em;
   margin-left: auto;

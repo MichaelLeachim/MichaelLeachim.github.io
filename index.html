@@ -35,6 +35,14 @@
     		   
 
     
+      <a class="tag smallTag stripHREF " href="DataMining/index.html" style="font-size:14px;">DataMining</a>
+    
+  
+    
+      
+    		   
+
+    
       <a class="tag smallTag stripHREF " href="Contacts/index.html" style="font-size:14px;">Contacts</a>
     
   
@@ -43,7 +51,7 @@
     		   
 
     
-      <a class="tag smallTag stripHREF " href="python/index.html" style="font-size:14px;">python</a>
+      <a class="tag smallTag stripHREF " href="flask/index.html" style="font-size:14px;">flask</a>
     
   
     
@@ -52,6 +60,14 @@
 
     
       <a class="tag smallTag stripHREF " href="scraping/index.html" style="font-size:14px;">scraping</a>
+    
+  
+    
+      
+    		   
+
+    
+      <a class="tag smallTag stripHREF " href="python/index.html" style="font-size:14px;">python</a>
     
   
     
@@ -103,11 +119,11 @@
     
   
     
-      
+      		   
     		   
 
     
-      <a class="tag smallTag stripHREF " href="tutorial/index.html" style="font-size:14px;">tutorial</a>
+      <a class="tag bigTag stripHREF " href="tutorial/index.html" style="font-size:36px;">tutorial</a>
     
   
 </div>    
@@ -126,6 +142,178 @@
        	<div class="blogPostTags">
        	  
             
+     	      <a class="tagInline stripHREF" href="DataMining/index.html">DataMining</a>
+      	      
+       	  
+       	</div>
+	<div class="dateElement">
+	  2015.04.10
+	</div>
+      </div>
+      <div class="postContent buttonFinder">
+	<h2>Simulated annealing for complete dummies[like me]</h2>
+<p>What is the way of understanding some complex thing.
+It is to try to find the easiest possible example of using it.
+So, we will use <strong>simulated annealing</strong> for working out simple equasion. Here it is:
+<code>(x+123)*(x-47)*(x+19)*(x-96) = 0</code>
+Our task is to find at least one root of this equasion. </p>
+<h3>Step one. Define API. It will work as interface between any problem, and algorithm</h3>
+<p>Here it is.
+<code>interface IProblem&lt;DataFrame&gt; {
+     energy:(data:DataFrame)=&gt;number
+     neighbour:(data:DataFrame)=&gt;DataFrame
+     startingTemp:number
+     stopTemp:number
+     decreaseRate:number
+     initState:DataFrame
+ }</code>
+<strong>energy</strong> is a function which will give <em>rating</em> to our state. And it looks like this:
+<code>function(x:number):number{
+    return Math.abs((110+x)*(213+x)*(245+x)*(143+x))
+}</code>
+Several notes:</p>
+<ol>
+<li><strong>energy</strong> function must be positive.</li>
+<li>For simplicity sake we use the simpliest format <strong>number</strong> of data representation.</li>
+</ol>
+<p>Second one is <strong>neighbour</strong> function. It takes state,and derives state with similar energy. The first thing that comes to mind is just to use -1 +1 array. Like this:
+<code>function(data:number){
+     return data + _.sample([-1,1])
+},</code>
+<strong>_.sample</strong> function takes random element from array. It is from <a href="https://lodash.com/docs">lodash</a>.</p>
+<p>Following params are algorithm  constants. People suggest to change them empirically to find what fits best  for your problem
+<code>startingTemp:number
+stopTemp:number
+decreaseRate:number</code></p>
+<p>Formula in function <strong>ifChange</strong> usually stays unchanged on every problem. "This formula was superficially justified by analogy with the transitions of a physical system" says <a href="http://en.wikipedia.org/wiki/Simulated_annealing#Acceptance_probabilities_2">wiki</a>.
+Pseudocode:
+<code>#Acceptance probability
+def ifChange(energy:number,newEnergy:number,temperature:number):boolean
+  #This solution is better. Use it
+  if newEnergy&lt;energy
+    return true
+  #This solution is worse. Determine if we use it by Acceptance_probabilities described from above 
+  random:number = Math.random()
+  probability:number = Math.pow(Math.E,((energy-newEnergy)/temperature))
+  return probability&gt;=random
+ #annealing
+currentState  = someRandomState
+bestState     = currentState
+while currentTemperature &gt; minimumTemperature:
+  newState = neighbour(currentState)
+  # determine if Algorithm should jump to another state
+  if ifChange(energy(currentState),energy(newState),currentTemperature)
+    currentState = newState
+  # keep best solution   
+  if energy(currentState) &lt; energy(bestState) 
+    bestState = currentState
+  decreaseTemperature()</code>
+So. Here is an implementation of that algorithm in <strong>Typescript</strong>:
+<code>function  ifChange(energy:number,newEnergy:number,temperature:number):boolean{
+  // This solution is better. Use it
+  if (newEnergy&lt;energy){
+    return true
+  }
+  // Choose if we are to use worse solution or not
+    var random:number = Math.random()
+    var probability:number = Math.pow(Math.E,((energy-newEnergy)/temperature))
+    return probability&gt;=random
+  }
+export function Solution&lt;DataFrame&gt;(data:IProblem&lt;DataFrame&gt;){
+  var state        = data.initState
+  var bestState    = data.initState
+  var nowTemp      = data.startingTemp
+  console.log("Starting optimization with state: ",state,
+              " and startingTemp: ",data.startingTemp)
+  while(nowTemp&gt;data.stopTemp){
+    var newRandomState = data.neighbour(state)
+    if(ifChange(data.energy(state),data.energy(newRandomState),nowTemp)){
+      state = newRandomState
+    }
+    nowTemp= nowTemp * (1-data.decreaseRate)
+    // Keep track of the best solution found
+    if (data.energy(state) &lt; data.energy(bestState)) {
+      bestState = state
+    }
+  }
+  console.log("Cooled down. Best solution so far: ",bestState,
+              "with energy: ",data.energy(bestState))
+  return bestState
+}</code></p>
+<p>And here is a definition of our problem in terms of defined architecture:
+<code>module SampleAnnealingSolution {
+  var quadratic:Annealing.IProblem&lt;number&gt; = {
+    energy:function(x:number):number{
+      return Math.abs((110+x)*(213+x)*(245+x)*(143+x))
+    },
+    neighbour:function(data:number){
+      return data + _.sample([-3,-2,-1,1,2,3])
+    },
+    startingTemp:40000,
+    stopTemp:0.4,
+    decreaseRate:0.03,
+    initState:0
+  }
+  console.log(Annealing.Solution(quadratic))
+}</code></p>
+<ul>
+<li>You can play with constants to find what  suits your problem best.</li>
+<li>This algorithm will find only one root. You can use it to find all roots of arbitrary equation by running algorithm consequently.</li>
+</ul>
+<p>Source code can be found <a href="https://github.com/VbifRkbvjd/simpleAnnealing">here</a></p>
+<p>Running code from above will give you something like this in dev. console:
+<img src="static/public/annealingResult.png" width="100%"></p>
+      </div>
+      <button class="openMore__button">&dArr;</button>
+    </div>
+  
+    <!-- text:string -->
+    <div class="blogPost">
+      <div class="header">
+        <span class="content__halfLineLeft"></span>
+        <a href="http://127.0.0.1:5000/1/" class="content__Symbol stripHREF">&infin;</a>
+        <span class="content__halfLineRight"></span>
+
+       	<div class="blogPostTags">
+       	  
+            
+     	      <a class="tagInline stripHREF" href="flask/index.html">flask</a>
+      	      
+       	  
+            
+     	      <a class="tagInline stripHREF" href="tutorial/index.html">tutorial</a>
+      	      
+       	  
+       	</div>
+	<div class="dateElement">
+	  2015.04.09
+	</div>
+      </div>
+      <div class="postContent buttonFinder">
+	<h2>How to make your site static with just one command</h2>
+<p>Here it is. This amazing. Yet, very simple command
+<code>wget \
+     -N \
+     --recursive \
+     --page-requisites \
+     --html-extension \
+     --convert-links \
+     127.0.0.1:5000</code>
+Where <strong>127.0.0.1:5000</strong> is your local site address.     </p>
+      </div>
+      <button class="openMore__button">&dArr;</button>
+    </div>
+  
+    <!-- text:string -->
+    <div class="blogPost">
+      <div class="header">
+        <span class="content__halfLineLeft"></span>
+        <a href="http://127.0.0.1:5000/2/" class="content__Symbol stripHREF">&infin;</a>
+        <span class="content__halfLineRight"></span>
+
+       	<div class="blogPostTags">
+       	  
+            
      	      <a class="tagInline stripHREF" href="tutorial/index.html">tutorial</a>
       	      
        	  
@@ -137,10 +325,9 @@
 	<div class="dateElement">
 	  2015.04.08
 	</div>
-
       </div>
       <div class="postContent buttonFinder">
-        <h3>How to watch video from your computer on every device at home without downloading it.[in two steps]</h3>
+	<h2>How to watch video from your computer on every device at home without downloading it[in two steps]</h2>
 <h4>Why ?</h4>
 <p>I usually watch movies and read books from my android phone and tablet.
 So I decided, it would be great if I could use my main hard disk and share it to the network.
@@ -201,33 +388,6 @@ Now You can put any video into that directory. And <strong>vlc</strong> from you
 <p>In the next part of this tutorial  I will tell how to convert fast any video, so you can feed it to vlc without any problems.</p>
 <hr />
 <p>I always can be wrong, or not having known something important. If you find an error, please tell me  at mklimoff222 at gmail.com.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
       </div>
       <button class="openMore__button">&dArr;</button>
     </div>
@@ -236,7 +396,7 @@ Now You can put any video into that directory. And <strong>vlc</strong> from you
     <div class="blogPost">
       <div class="header">
         <span class="content__halfLineLeft"></span>
-        <a href="http://127.0.0.1:5000/1/" class="content__Symbol stripHREF">&infin;</a>
+        <a href="http://127.0.0.1:5000/3/" class="content__Symbol stripHREF">&infin;</a>
         <span class="content__halfLineRight"></span>
 
        	<div class="blogPostTags">
@@ -253,10 +413,9 @@ Now You can put any video into that directory. And <strong>vlc</strong> from you
 	<div class="dateElement">
 	  2015.04.07
 	</div>
-
       </div>
       <div class="postContent buttonFinder">
-        <h3>Depta for data scraping</h3>
+	<h2>Depta for data scraping</h2>
 <p>Hello  My dear reader.
 Today I am to tell about great library that should definitely been known more</p>
 <p>Have you ever wondered how you can extract data from web automatically without <strong>RegExp</strong> or <strong>xpath</strong> based parsers like <a href="http://lxml.de/">lxml</a>.</p>
@@ -748,10 +907,6 @@ Result will look somehow like this. I intentionally omit other tables. It can be
 <hr />
 <p>P.S This is my understanding of this algorithm. If you find it wrong somehow, I am eager to know. Please, write to mklimoff at gmail.com</p>
 <p><em>This post is for education purposes only. Author does not bear any legal  responisbility regarding this post</em></p>
-
-
-
-
       </div>
       <button class="openMore__button">&dArr;</button>
     </div>
@@ -760,7 +915,7 @@ Result will look somehow like this. I intentionally omit other tables. It can be
     <div class="blogPost">
       <div class="header">
         <span class="content__halfLineLeft"></span>
-        <a href="http://127.0.0.1:5000/2/" class="content__Symbol stripHREF">&infin;</a>
+        <a href="http://127.0.0.1:5000/4/" class="content__Symbol stripHREF">&infin;</a>
         <span class="content__halfLineRight"></span>
 
        	<div class="blogPostTags">
@@ -773,10 +928,9 @@ Result will look somehow like this. I intentionally omit other tables. It can be
 	<div class="dateElement">
 	  2015.03.15
 	</div>
-
       </div>
       <div class="postContent buttonFinder">
-        <h3>Why typescript</h3>
+	<h2>Why typescript</h2>
 <p>Recently, I changed my main  work environment in  browser from <em>coffeescript</em> to <em>typescript</em>.
 Here I am to tell why. And about my  work environment.</p>
 <h4>Coffee advatages over typescript</h4>
@@ -868,59 +1022,6 @@ window.path  = require("path")
 window.fs    = require("fs-extra")
 // e.t.c</code>
 And then, every subsystem just use these from related <em>d.ts</em> files. As they are just  globals.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
       </div>
       <button class="openMore__button">&dArr;</button>
     </div>
@@ -929,7 +1030,7 @@ And then, every subsystem just use these from related <em>d.ts</em> files. As th
     <div class="blogPost">
       <div class="header">
         <span class="content__halfLineLeft"></span>
-        <a href="http://127.0.0.1:5000/3/" class="content__Symbol stripHREF">&infin;</a>
+        <a href="http://127.0.0.1:5000/5/" class="content__Symbol stripHREF">&infin;</a>
         <span class="content__halfLineRight"></span>
 
        	<div class="blogPostTags">
@@ -942,10 +1043,9 @@ And then, every subsystem just use these from related <em>d.ts</em> files. As th
 	<div class="dateElement">
 	  2015.03.14
 	</div>
-
       </div>
       <div class="postContent buttonFinder">
-        <h3>My evolution from dynamic to static typing.</h3>
+	<h2>How I came to use static typing</h2>
 <p>I have been "dynamic" for the most of my career in programming(Which is not a lot,for about 3 years of actual development in python and js.)</p>
 <p>Being dynamic was not because of some conscious decision.</p>
 <p>Just, when you start programming(having no CS background) dynamic typing seems less mundane, and more appealing for someone outside of development.</p>
@@ -989,7 +1089,7 @@ I deliberately do not mention obvious:</p>
     <div class="blogPost">
       <div class="header">
         <span class="content__halfLineLeft"></span>
-        <a href="http://127.0.0.1:5000/4/" class="content__Symbol stripHREF">&infin;</a>
+        <a href="http://127.0.0.1:5000/6/" class="content__Symbol stripHREF">&infin;</a>
         <span class="content__halfLineRight"></span>
 
        	<div class="blogPostTags">
@@ -1006,10 +1106,9 @@ I deliberately do not mention obvious:</p>
 	<div class="dateElement">
 	  2015.02.28
 	</div>
-
       </div>
       <div class="postContent buttonFinder">
-        <h3>Hello. My name is Michael, and this is my blog.</h3>
+	<h2>Hello. My name is Michael, and this is my blog.</h2>
 <p>Here you can find my thoughts on nearly anything related to my life
 I can code in</p>
 <ul>
@@ -1050,18 +1149,6 @@ Here is the first things that come up in mind</p>
 <p>I use any tools  provided,but my favourite is <strong>emacs</strong>
 I have  B.Sc in economics and I play piano.</p>
 <!-- If you are intended to hire me, you are welcome at **mklimoff222** at **google mail com**. -->
-
-
-
-
-
-
-
-
-
-
-
-
       </div>
       <button class="openMore__button">&dArr;</button>
     </div>
@@ -1070,7 +1157,7 @@ I have  B.Sc in economics and I play piano.</p>
     <div class="blogPost">
       <div class="header">
         <span class="content__halfLineLeft"></span>
-        <a href="http://127.0.0.1:5000/5/" class="content__Symbol stripHREF">&infin;</a>
+        <a href="http://127.0.0.1:5000/7/" class="content__Symbol stripHREF">&infin;</a>
         <span class="content__halfLineRight"></span>
 
        	<div class="blogPostTags">
@@ -1091,10 +1178,9 @@ I have  B.Sc in economics and I play piano.</p>
 	<div class="dateElement">
 	  2015.02.28
 	</div>
-
       </div>
       <div class="postContent buttonFinder">
-        <h4>One hour of coding.</h4>
+	<h2>One hour of coding.</h2>
 <blockquote>
 <p>During this contest, I indend to write something useful for about an  hour.
 This blog engine  was made exactly at one hour, and 23 minutes.
