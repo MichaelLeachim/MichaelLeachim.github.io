@@ -1,0 +1,1491 @@
+<!-- blogPosts:text[] -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en">
+<head>
+  <title>Michael's blog</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="static/main.css">
+  <link rel="stylesheet" type="text/css" href="static/typeplate.css">
+  <link rel="stylesheet" type="text/css" href="static/highlight/styles/solarized_dark.css">  
+  <script type="text/javascript"  src="static/jquery.min.js"></script>
+  <script type="text/javascript"  src="static/main.js"></script>
+  <script type="text/javascript"  src="static/highlight/highlight.pack.js"></script>
+  
+</head>
+<body>
+  <div class="mainSection">
+    <div id="navigation">
+      <div id="gertruda">
+	<a href="index.html" class="stripHREF" id="symbol">
+	</a>
+	<div id="slogan">
+	</div>
+      </div>
+      <div id="spacer"></div>	
+
+      <!-- tag.name:string -->
+<!-- tag.size:number -->
+<!-- tagsList:tag[] -->
+<!-- selectedTagSet:set<string> -->
+
+<div class="tagContainer">
+  
+    
+      
+    		   
+
+    
+      <a class="tag smallTag stripHREF " href="TypeScript/index.html" style="font-size:14px;">TypeScript</a>
+    
+  
+    
+      
+    		   
+
+    
+      <a class="tag smallTag stripHREF " href="DataMining/index.html" style="font-size:14px;">DataMining</a>
+    
+  
+    
+      
+    		   
+
+    
+      <a class="tag smallTag stripHREF " href="Contacts/index.html" style="font-size:14px;">Contacts</a>
+    
+  
+    
+      		   
+    		   
+
+    
+      <a class="tag bigTag stripHREF " href="python/index.html" style="font-size:36px;">python</a>
+    
+  
+    
+      		   
+    		   
+
+    
+      <a class="tag bigTag stripHREF " href="hour-of-coding/index.html" style="font-size:28px;">hour-of-coding</a>
+    
+  
+    
+      
+    		   
+
+    
+      <a class="tag smallTag stripHREF " href="static-typing/index.html" style="font-size:21px;">static-typing</a>
+    
+  
+    
+      
+    		   
+
+    
+      <a class="tag smallTag stripHREF " href="immutable.js/index.html" style="font-size:14px;">immutable.js</a>
+    
+  
+    
+      
+    		   
+
+    
+      <a class="tag smallTag stripHREF " href="debian/index.html" style="font-size:21px;">debian</a>
+    
+  
+    
+      
+    		   
+
+    
+      <a class="tag smallTag stripHREF " href="GoLang/index.html" style="font-size:14px;">GoLang</a>
+    
+  
+    
+      
+    		   
+
+    
+      <a class="tag smallTag stripHREF " href="flask/index.html" style="font-size:14px;">flask</a>
+    
+  
+    
+      
+    		   
+
+    
+      <a class="tag smallTag stripHREF " href="typescript/index.html" style="font-size:14px;">typescript</a>
+    
+  
+    
+      
+    		   
+
+    
+      <a class="tag smallTag stripHREF " href="jinja2/index.html" style="font-size:14px;">jinja2</a>
+    
+  
+    
+      
+    		   
+
+    
+      <a class="tag smallTag stripHREF " href="play-video/index.html" style="font-size:14px;">play-video</a>
+    
+  
+    
+      
+    		   
+
+    
+      <a class="tag smallTag stripHREF " href="scraping/index.html" style="font-size:14px;">scraping</a>
+    
+  
+    
+      
+    		   
+
+    
+      <a class="tag smallTag stripHREF " href="DEPTA/index.html" style="font-size:14px;">DEPTA</a>
+    
+  
+    
+      
+    		   
+
+    
+      <a class="tag smallTag stripHREF " href="Hello/index.html" style="font-size:14px;">Hello</a>
+    
+  
+    
+      		   
+    		   
+
+    
+      <a class="tag bigTag stripHREF " href="tutorial/index.html" style="font-size:36px;">tutorial</a>
+    
+  
+</div>    
+    </div>
+    <div id="content">
+      <!-- <h3>Hello I am Michael. I write stuff and play piano</h3> -->
+      
+  
+    <!-- text:string -->
+    <div class="blogPost">
+      <div class="header">
+        <span class="content__halfLineLeft"></span>
+        <a href="http://127.0.0.1:5000/0/" class="content__Symbol stripHREF">&infin;</a>
+        <span class="content__halfLineRight"></span>
+
+       	<div class="blogPostTags">
+       	  
+            
+     	      <a class="tagInline stripHREF" href="TypeScript/index.html">TypeScript</a>
+      	      
+       	  
+            
+     	      <a class="tagInline stripHREF" href="immutable.js/index.html">immutable.js</a>
+      	      
+       	  
+            
+     	      <a class="tagInline stripHREF" href="tutorial/index.html">tutorial</a>
+      	      
+       	  
+       	</div>
+	<div class="dateElement">
+	  2015.05.17
+	</div>
+      </div>
+      <div class="postContent buttonFinder">
+	<h2>How to make immutable Record play nicely with typescript</h2>
+<p>For my current work, I need support for TypeScript with Immutable.js.
+During my studying. I realised, that <strong>Record</strong> structure in Immutable.js has named parameters. So. It actually, acts like a JavaScript object.
+But, with several differences. But,TypeScript does not work good with it.
+So. I tried to find a solution</p>
+<h4>Objective</h4>
+<p>Make immutable.js type Record work with typechecking in TypeScript</p>
+<h4>Solution</h4>
+<p><code>///&lt;reference path='../node_modules/immutable/dist/immutable.d.ts'/&gt;
+// Declare our interface
+interface IMeta {
+    editingTagId:     number
+    editingNodeRowid: number
+    tagFontMagnifier: number
+    minTagFont:       number
+    maxTagFont:       number
+}
+// Make composite interface
+interface IMetaComposite extends Immutable.Map,IMeta {}
+// Make Record
+var metaRecord = Immutable.Record({
+    editingTagId:     0,
+    editingNodeRowid: 0,
+    tagFontMagnifier: 1,
+    minTagFont:       14,
+    maxTagFont:       20
+})
+// Cast composite type
+var meta = &lt;IMetaComposite&gt;(new metaRecord)
+// Result. Actually compiles. IDE support works:
+meta.editingTagId
+meta.set
+meta.minTagFont</code></p>
+<h4>Conclusion</h4>
+<p>This is not the best solution. But this is enough for my humble needs.</p>
+      </div>
+      <button class="openMore__button">&dArr;</button>
+    </div>
+  
+    <!-- text:string -->
+    <div class="blogPost">
+      <div class="header">
+        <span class="content__halfLineLeft"></span>
+        <a href="http://127.0.0.1:5000/1/" class="content__Symbol stripHREF">&infin;</a>
+        <span class="content__halfLineRight"></span>
+
+       	<div class="blogPostTags">
+       	  
+            
+     	      <a class="tagInline stripHREF" href="GoLang/index.html">GoLang</a>
+      	      
+       	  
+            
+     	      <a class="tagInline stripHREF" href="hour-of-coding/index.html">hour-of-coding</a>
+      	      
+       	  
+       	</div>
+	<div class="dateElement">
+	  2015.04.23
+	</div>
+      </div>
+      <div class="postContent buttonFinder">
+	<h2>NW SULFUR is a way to package your node webkit program</h2>
+<p><a href="static/public/sulfur_nwlabel.jpg"><img src="static/public/sulfur_nwlabel.jpg"></a></p>
+<h3>Why ?</h3>
+<p>I needed a way to distribute node-webkit apps in a smaller size package.
+So. I created <strong>nw-sulfur</strong>
+It is still in a very beta stage. But it is useful.</p>
+<h3>Before nw sulfur:</h3>
+<p>Your nw folder with binaries is around <strong>150M+</strong></p>
+<h3>After nw-sulfur:</h3>
+<p>Your nw-folder is around <strong>20M</strong></p>
+<h3>It does the following:</h3>
+<ol>
+<li>Determines if you have to download NW.js</li>
+<li>If Yes: Downloads it and Shows fancy progressbar.</li>
+<li>If No:  Opens your app with NW binary.</li>
+</ol>
+<h3>How ?</h3>
+<p>I needed a very small program. So I picked up <strong>golang</strong>. At first, I wanted to use <em>C</em>. But I found out, that it was quite difficult to make it work on all platforms.
+I tried to reduce size of resulting binary as much as possible. I also wanted ability to customize progressbar while downloading data.
+So I took ui based on web browser. Precisely. It works  this way:</p>
+<ol>
+<li>Start server in a goroutine</li>
+<li>Run default platform independent browser.</li>
+<li>Do downloading.</li>
+</ol>
+<p>Installation and further instructions are <a href="https://github.com/VbifRkbvjd/nw-sulfur">here</a></p>
+<p>It is kind of interesting to  start to work in a different language and different paradigm.
+Working in <strong>Golang</strong> was a pleasure. But. There were some gotchas.</p>
+<p>For example: I could not read  JSON files. Because <strong>Unmarchall</strong> structure <strong>must start with a capital letter</strong>.
+And there is no clear error about this. Just, cannot <strong>Unmarchall</strong>, and that is it.
+It is kind of weird. Thanks to help on stackoverflow. And <strong>2 hours</strong> of hitting wall with my head.
+In the end <strong>GO</strong> is much more understandable than, <strong>node.js</strong>, which, in turn, has  a lot more <strong>WTF</strong> on its own.</p>
+      </div>
+      <button class="openMore__button">&dArr;</button>
+    </div>
+  
+    <!-- text:string -->
+    <div class="blogPost">
+      <div class="header">
+        <span class="content__halfLineLeft"></span>
+        <a href="http://127.0.0.1:5000/2/" class="content__Symbol stripHREF">&infin;</a>
+        <span class="content__halfLineRight"></span>
+
+       	<div class="blogPostTags">
+       	  
+            
+     	      <a class="tagInline stripHREF" href="python/index.html">python</a>
+      	      
+       	  
+            
+     	      <a class="tagInline stripHREF" href="hour-of-coding/index.html">hour-of-coding</a>
+      	      
+       	  
+       	</div>
+	<div class="dateElement">
+	  2015.04.12
+	</div>
+      </div>
+      <div class="postContent buttonFinder">
+	<h2>Launched simple helper for work[pomodorro]</h2>
+<p><img alt="Here it is" src="static/public/pomodorro.gif" /></p>
+<p>Feautures:</p>
+<ul>
+<li>keeps track of your sessions, so you can kill it. When you start it will continue working from the same time.</li>
+<li>has a beautiful timer</li>
+<li>no dependencies</li>
+</ul>
+<p>Install it like this:
+<code>git clone https://github.com/VbifRkbvjd/pomodorro-cli</code>
+Usage is like this
+<code>python ./main.py</code>
+Configuration is in <strong>config.py</strong>
+<code>SAVE_FILE = "pomodorro.db"
+WORK = 25
+REST = 5
+BIGREST = 25
+ONE_SECOND = 1</code>
+If you want to make a pause. Close app by <strong>Ctrl+c</strong>. It will remember it last position when you start it again.
+Source goes <a href="https://github.com/VbifRkbvjd/pomodorro-cli">here</a></p>
+      </div>
+      <button class="openMore__button">&dArr;</button>
+    </div>
+  
+    <!-- text:string -->
+    <div class="blogPost">
+      <div class="header">
+        <span class="content__halfLineLeft"></span>
+        <a href="http://127.0.0.1:5000/3/" class="content__Symbol stripHREF">&infin;</a>
+        <span class="content__halfLineRight"></span>
+
+       	<div class="blogPostTags">
+       	  
+            
+     	      <a class="tagInline stripHREF" href="debian/index.html">debian</a>
+      	      
+       	  
+            
+     	      <a class="tagInline stripHREF" href="tutorial/index.html">tutorial</a>
+      	      
+       	  
+       	</div>
+	<div class="dateElement">
+	  2015.04.11
+	</div>
+      </div>
+      <div class="postContent buttonFinder">
+	<h2>How to convert video to gif[One super  easy step]</h2>
+<p>Do the following
+<code>ffmpeg -i input.avi out.gif</code>
+That is it. For recording your screen in first place. I recommend <a href="https://launchpad.net/kazam">Kazam Screencaster</a></p>
+      </div>
+      <button class="openMore__button">&dArr;</button>
+    </div>
+  
+    <!-- text:string -->
+    <div class="blogPost">
+      <div class="header">
+        <span class="content__halfLineLeft"></span>
+        <a href="http://127.0.0.1:5000/4/" class="content__Symbol stripHREF">&infin;</a>
+        <span class="content__halfLineRight"></span>
+
+       	<div class="blogPostTags">
+       	  
+            
+     	      <a class="tagInline stripHREF" href="typescript/index.html">typescript</a>
+      	      
+       	  
+            
+     	      <a class="tagInline stripHREF" href="DataMining/index.html">DataMining</a>
+      	      
+       	  
+       	</div>
+	<div class="dateElement">
+	  2015.04.10
+	</div>
+      </div>
+      <div class="postContent buttonFinder">
+	<h2>Simulated annealing for complete dummies[like me]</h2>
+<p>What is the way of understanding some complex thing.
+It is to try to find the easiest possible example of using it.
+So, we will use <strong>simulated annealing</strong> for working out simple equasion. Here it is:
+<code>(x+123)*(x-47)*(x+19)*(x-96) = 0</code>
+Our task is to find at least one root of this equasion. </p>
+<h3>Step one. Define API. It will work as interface between any problem, and algorithm</h3>
+<p>Here it is.
+<code>interface IProblem&lt;DataFrame&gt; {
+     energy:(data:DataFrame)=&gt;number
+     neighbour:(data:DataFrame)=&gt;DataFrame
+     startingTemp:number
+     stopTemp:number
+     decreaseRate:number
+     initState:DataFrame
+ }</code>
+<strong>energy</strong> is a function which will give <em>rating</em> to our state. And it looks like this:
+<code>function(x:number):number{
+    return Math.abs((110+x)*(213+x)*(245+x)*(143+x))
+}</code>
+Several notes:</p>
+<ol>
+<li><strong>energy</strong> function must be positive.</li>
+<li>For simplicity sake we use the simpliest format <strong>number</strong> of data representation.</li>
+</ol>
+<p>Second one is <strong>neighbour</strong> function. It takes state,and derives state with similar energy. The first thing that comes to mind is just to use -1 +1 array. Like this:
+<code>function(data:number){
+     return data + _.sample([-1,1])
+},</code>
+<strong>_.sample</strong> function takes random element from array. It is from <a href="https://lodash.com/docs">lodash</a>.</p>
+<p>Following params are algorithm  constants. People suggest to change them empirically to find what fits best  for your problem
+<code>startingTemp:number
+stopTemp:number
+decreaseRate:number</code></p>
+<p>Formula in function <strong>ifChange</strong> usually stays unchanged on every problem. "This formula was superficially justified by analogy with the transitions of a physical system" says <a href="http://en.wikipedia.org/wiki/Simulated_annealing#Acceptance_probabilities_2">wiki</a>.
+Pseudocode:
+<code>#Acceptance probability
+def ifChange(energy:number,newEnergy:number,temperature:number):boolean
+  #This solution is better. Use it
+  if newEnergy&lt;energy
+    return true
+  #This solution is worse. Determine if we use it by Acceptance_probabilities described from above 
+  random:number = Math.random()
+  probability:number = Math.pow(Math.E,((energy-newEnergy)/temperature))
+  return probability&gt;=random
+ #annealing
+currentState  = someRandomState
+bestState     = currentState
+while currentTemperature &gt; minimumTemperature:
+  newState = neighbour(currentState)
+  # determine if Algorithm should jump to another state
+  if ifChange(energy(currentState),energy(newState),currentTemperature)
+    currentState = newState
+  # keep best solution   
+  if energy(currentState) &lt; energy(bestState) 
+    bestState = currentState
+  decreaseTemperature()</code>
+So. Here is an implementation of that algorithm in <strong>Typescript</strong>:
+<code>function  ifChange(energy:number,newEnergy:number,temperature:number):boolean{
+  // This solution is better. Use it
+  if (newEnergy&lt;energy){
+    return true
+  }
+  // Choose if we are to use worse solution or not
+    var random:number = Math.random()
+    var probability:number = Math.pow(Math.E,((energy-newEnergy)/temperature))
+    return probability&gt;=random
+  }
+export function Solution&lt;DataFrame&gt;(data:IProblem&lt;DataFrame&gt;){
+  var state        = data.initState
+  var bestState    = data.initState
+  var nowTemp      = data.startingTemp
+  console.log("Starting optimization with state: ",state,
+              " and startingTemp: ",data.startingTemp)
+  while(nowTemp&gt;data.stopTemp){
+    var newRandomState = data.neighbour(state)
+    if(ifChange(data.energy(state),data.energy(newRandomState),nowTemp)){
+      state = newRandomState
+    }
+    nowTemp= nowTemp * (1-data.decreaseRate)
+    // Keep track of the best solution found
+    if (data.energy(state) &lt; data.energy(bestState)) {
+      bestState = state
+    }
+  }
+  console.log("Cooled down. Best solution so far: ",bestState,
+              "with energy: ",data.energy(bestState))
+  return bestState
+}</code></p>
+<p>And here is a definition of our problem in terms of defined architecture:
+<code>module SampleAnnealingSolution {
+  var quadratic:Annealing.IProblem&lt;number&gt; = {
+    energy:function(x:number):number{
+      return Math.abs((110+x)*(213+x)*(245+x)*(143+x))
+    },
+    neighbour:function(data:number){
+      return data + _.sample([-3,-2,-1,1,2,3])
+    },
+    startingTemp:40000,
+    stopTemp:0.4,
+    decreaseRate:0.03,
+    initState:0
+  }
+  console.log(Annealing.Solution(quadratic))
+}</code></p>
+<ul>
+<li>You can play with constants to find what  suits your problem best.</li>
+<li>This algorithm will find only one root. You can use it to find all roots of arbitrary equation by running algorithm consequently.</li>
+</ul>
+<p>Source code can be found <a href="https://github.com/VbifRkbvjd/simpleAnnealing">here</a></p>
+<p>Running code from above will give you something like this in dev. console:
+<img src="static/public/annealingResult.png" width="100%"></p>
+      </div>
+      <button class="openMore__button">&dArr;</button>
+    </div>
+  
+    <!-- text:string -->
+    <div class="blogPost">
+      <div class="header">
+        <span class="content__halfLineLeft"></span>
+        <a href="http://127.0.0.1:5000/5/" class="content__Symbol stripHREF">&infin;</a>
+        <span class="content__halfLineRight"></span>
+
+       	<div class="blogPostTags">
+       	  
+            
+     	      <a class="tagInline stripHREF" href="python/index.html">python</a>
+      	      
+       	  
+            
+     	      <a class="tagInline stripHREF" href="flask/index.html">flask</a>
+      	      
+       	  
+            
+     	      <a class="tagInline stripHREF" href="tutorial/index.html">tutorial</a>
+      	      
+       	  
+       	</div>
+	<div class="dateElement">
+	  2015.04.09
+	</div>
+      </div>
+      <div class="postContent buttonFinder">
+	<h2>How to make your site static with just one command</h2>
+<p>Here it is. This amazing. Yet, very simple command
+<code>wget \
+     -N \
+     --recursive \
+     --page-requisites \
+     --html-extension \
+     --convert-links \
+     127.0.0.1:5000</code>
+Where <strong>127.0.0.1:5000</strong> is your local site address.     </p>
+      </div>
+      <button class="openMore__button">&dArr;</button>
+    </div>
+  
+    <!-- text:string -->
+    <div class="blogPost">
+      <div class="header">
+        <span class="content__halfLineLeft"></span>
+        <a href="http://127.0.0.1:5000/6/" class="content__Symbol stripHREF">&infin;</a>
+        <span class="content__halfLineRight"></span>
+
+       	<div class="blogPostTags">
+       	  
+            
+     	      <a class="tagInline stripHREF" href="tutorial/index.html">tutorial</a>
+      	      
+       	  
+            
+     	      <a class="tagInline stripHREF" href="debian/index.html">debian</a>
+      	      
+       	  
+            
+     	      <a class="tagInline stripHREF" href="play-video/index.html">play-video</a>
+      	      
+       	  
+       	</div>
+	<div class="dateElement">
+	  2015.04.08
+	</div>
+      </div>
+      <div class="postContent buttonFinder">
+	<h2>How to watch video from your computer on every device at home without downloading it[in two steps]</h2>
+<h4>Why ?</h4>
+<p>I usually watch movies and read books from my android phone and tablet.
+So I decided, it would be great if I could use my main hard disk and share it to the network.
+I came across this method accidentally. And it showed itself very useful.</p>
+<h4>So, You will need</h4>
+<ol>
+<li>Linux computer. Preferably Debian</li>
+<li>Android device</li>
+<li>Standart wifi router </li>
+<li>A little patience</li>
+</ol>
+<h4>Let's go on. Step one. Installation.</h4>
+<p>You will definitely need nginx server. It showed itself pretty decent on even old computers.
+Install it like this.
+<code>sudo apt-get install nginx</code>
+You will probably need ffmpeg file converter. Install it like this
+<code>sudo apt-get install ffmpeg</code>
+You will need media player. Install <strong>vlc media player</strong> on your android device.</p>
+<h5>Step two. Configuring nginx</h5>
+<p>Let's have our hands a little bit dirty. Execute next commands
+<code>sudo -s
+cd /etc/nginx/sites-enabled
+touch home-shared</code>
+Put in file <em>home-shared</em> configuration like this:
+<code>server {
+    listen 80;
+    location / {
+      autoindex on;
+      root /home/mik/shared;
+    }
+  }</code>
+Where <strong>root</strong> is <em>absolute path to your shared folder</em>
+It would go like this
+<code>echo "server {
+    listen 80;
+    location / {
+      autoindex on;
+      root /home/mik/shared;
+    }
+  }" &gt; home-shared</code>
+Restart your nginx server by:
+<code>/etc/init.d/nginx restart</code>
+In your browser, go to <em>127.0.0.1</em>.
+You must see something like this. </p>
+<hr />
+<h2><img src="static/public/howTo__video.png"></img></h2>
+<p>Now, You must try to see this with another computer in your network.
+Your ip address you can see like this
+<code>sudo ifconfig | grep "inet addr"</code>
+Select that one wich starts with <strong>192.168.1.</strong>
+Go to your android device. Or to another computer. And type into address bar that ip. Like this.</p>
+<hr />
+<h2><img src="static/public/how_to_see.png"></img></h2>
+<p>If you see directory content. Congratulations.
+If you don't, try disabling your firewall.
+Now You can put any video into that directory. And <strong>vlc</strong> from your android device will play it on the fly.</p>
+<hr />
+<p>In the next part of this tutorial  I will tell how to convert fast any video, so you can feed it to vlc without any problems.</p>
+<hr />
+<p>I always can be wrong, or not having known something important. If you find an error, please tell me  at mklimoff222 at gmail.com.</p>
+      </div>
+      <button class="openMore__button">&dArr;</button>
+    </div>
+  
+    <!-- text:string -->
+    <div class="blogPost">
+      <div class="header">
+        <span class="content__halfLineLeft"></span>
+        <a href="http://127.0.0.1:5000/7/" class="content__Symbol stripHREF">&infin;</a>
+        <span class="content__halfLineRight"></span>
+
+       	<div class="blogPostTags">
+       	  
+            
+     	      <a class="tagInline stripHREF" href="python/index.html">python</a>
+      	      
+       	  
+            
+     	      <a class="tagInline stripHREF" href="scraping/index.html">scraping</a>
+      	      
+       	  
+            
+     	      <a class="tagInline stripHREF" href="DEPTA/index.html">DEPTA</a>
+      	      
+       	  
+       	</div>
+	<div class="dateElement">
+	  2015.04.07
+	</div>
+      </div>
+      <div class="postContent buttonFinder">
+	<h2>Depta for data scraping</h2>
+<p>Hello  My dear reader.
+Today I am to tell about great library that should definitely been known more</p>
+<p>Have you ever wondered how you can extract data from web automatically without <strong>RegExp</strong> or <strong>xpath</strong> based parsers like <a href="http://lxml.de/">lxml</a>.</p>
+<hr />
+<h4>State the problem</h4>
+<p>Imagine, You've got to scrape data from <strong>time series, forum posts or shop catalogues</strong>. Take for example this <a href="http://www.amazon.com/s/ref=nb_sb_noss_2?url=search-alias%3Daps&amp;field-keywords=mobile+phones">one</a>. You have to extract every data item and do it continuosly e.g <em>this day, tomorrow, next week e.t.c</em>. Here are the problems that you will definitely come across  with xpathes or regexps:</p>
+<ul>
+<li>Change in  site markdown. (Another branch, move of table e.t.c)</li>
+<li>Change in  data format. Was $, changed to USD. Dot was removed, or million other things.</li>
+</ul>
+<hr />
+<h4>DEPTA to the rescue</h4>
+<p>DEPTA, which is stated <strong>Data Extraction Based on Partial Tree Alignment</strong> algorithm was published in <a href="http://dl.acm.org/citation.cfm?id=1060761">Web Data Extraction Based on Partial Tree Alignment</a> paper by <strong>Yanhong Zhai</strong> and  <strong>Bing Liu</strong>. I definitely recomment read it if you are interested in data scraping.
+It is based on the assumption, that meaningful repeating  parts of web page will share common HTML structure  between them.</p>
+<hr />
+<h4>How does it work</h4>
+<p>In a very simplified way the algorithm works like that:</p>
+<ol>
+<li>Find parent HTML node whose children  subtrees are similar between themselves using <em>Edit distance between trees</em></li>
+<li>Align each subchild  of children subtree in column, that each element in that column share common metrics. Like xpath to this element in subtree.</li>
+</ol>
+<hr />
+<h4>So How does it help</h4>
+<p>Remember this heavy <a href="http://www.amazon.com/s/ref=nb_sb_noss_2?url=search-alias%3Daps&amp;field-keywords=mobile+phones">web page</a> site.
+Result will look somehow like this. I intentionally omit other tables. It can be done authomatically using simple heuristics like <a href="http://en.wikipedia.org/wiki/Naive_Bayes_classifier">Naive Bayes</a></p>
+<div class="HTMLContainer">
+<h2>table 3</h2>
+<table style="border-collapse: collapse; border: 3px solid black;">
+    <tbody>
+        <tr>
+            <td style="padding: 5px; border: 3px solid black;">Moto G Black (Boost Mobile)</td>
+            <td style="padding: 5px; border: 3px solid black;">Oct 27, 2013</td>
+            <td style="padding: 5px; border: 3px solid black;">by</td>
+            <td style="padding: 5px; border: 3px solid black;">MOTCB</td>
+            <td style="padding: 5px; border: 3px solid black;">$44.99</td>
+            <td style="padding: 5px; border: 3px solid black;">$129.99</td>
+            <td style="padding: 5px; border: 3px solid black;">(3-5 days)</td>
+            <td style="padding: 5px; border: 3px solid black;">Only 7 left in stock - order soon.</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">More Buying Choices</td>
+            <td style="padding: 5px; border: 3px solid black;">$38.99</td>
+            <td style="padding: 5px; border: 3px solid black;">new</td>
+            <td style="padding: 5px; border: 3px solid black;">(26 offers)</td>
+            <td style="padding: 5px; border: 3px solid black;">$29.90</td>
+            <td style="padding: 5px; border: 3px solid black;">used</td>
+            <td style="padding: 5px; border: 3px solid black;">(13 offers)</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">4.4 out of 5 stars</td>
+            <td style="padding: 5px; border: 3px solid black;">359</td>
+            <td style="padding: 5px; border: 3px solid black;">Trade-in eligible for an Amazon gift card</td>
+            <td style="padding: 5px; border: 3px solid black;">FREE Shipping on orders over $35</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">Electronics:</td>
+            <td style="padding: 5px; border: 3px solid black;">See all 7,942,614 items</td>
+        </tr>
+        <tr>
+            <td style="padding: 5px; border: 3px solid black;">HTC Desire 510 (A11) White (Boost Mobile)</td>
+            <td style="padding: 5px; border: 3px solid black;">Oct 1, 2014</td>
+            <td style="padding: 5px; border: 3px solid black;">by</td>
+            <td style="padding: 5px; border: 3px solid black;">Boost</td>
+            <td style="padding: 5px; border: 3px solid black;">$66.94</td>
+            <td style="padding: 5px; border: 3px solid black;">$99.99</td>
+            <td style="padding: 5px; border: 3px solid black;">(3-5 days)</td>
+            <td style="padding: 5px; border: 3px solid black;">Get it by</td>
+            <td style="padding: 5px; border: 3px solid black;">Thursday, Apr 9</td>
+            <td style="padding: 5px; border: 3px solid black;">More Buying Choices</td>
+            <td style="padding: 5px; border: 3px solid black;">$60.50</td>
+            <td style="padding: 5px; border: 3px solid black;">new</td>
+            <td style="padding: 5px; border: 3px solid black;">(64 offers)</td>
+            <td style="padding: 5px; border: 3px solid black;">$49.90</td>
+            <td style="padding: 5px; border: 3px solid black;">used</td>
+            <td style="padding: 5px; border: 3px solid black;">(14 offers)</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">3.6 out of 5 stars</td>
+            <td style="padding: 5px; border: 3px solid black;">407</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">FREE Shipping on orders over $35</td>
+            <td style="padding: 5px; border: 3px solid black;">Product Description</td>
+            <td style="padding: 5px; border: 3px solid black;">Phone</td>
+            <td style="padding: 5px; border: 3px solid black;">for Boost</td>
+            <td style="padding: 5px; border: 3px solid black;">Mobile</td>
+            <td style="padding: 5px; border: 3px solid black;">: You can download apps ...</td>
+            <td style="padding: 5px; border: 3px solid black;">Electronics:</td>
+            <td style="padding: 5px; border: 3px solid black;">See all 7,942,614 items</td>
+        </tr>
+        <tr>
+            <td style="padding: 5px; border: 3px solid black;">Samsung Galaxy Prevail LTE White (Boost Mobile)</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">by</td>
+            <td style="padding: 5px; border: 3px solid black;">Samsung</td>
+            <td style="padding: 5px; border: 3px solid black;">$98.94</td>
+            <td style="padding: 5px; border: 3px solid black;">$129.00</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">Get it by</td>
+            <td style="padding: 5px; border: 3px solid black;">Wednesday, Apr 8</td>
+            <td style="padding: 5px; border: 3px solid black;">More Buying Choices</td>
+            <td style="padding: 5px; border: 3px solid black;">$98.00</td>
+            <td style="padding: 5px; border: 3px solid black;">new</td>
+            <td style="padding: 5px; border: 3px solid black;">(3 offers)</td>
+            <td style="padding: 5px; border: 3px solid black;">$75.00</td>
+            <td style="padding: 5px; border: 3px solid black;">used</td>
+            <td style="padding: 5px; border: 3px solid black;">(3 offers)</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">4.4 out of 5 stars</td>
+            <td style="padding: 5px; border: 3px solid black;">35</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">FREE Shipping on orders over $35</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">Cell Phones &amp; Accessories:</td>
+            <td style="padding: 5px; border: 3px solid black;">See all 7,569,275 items</td>
+        </tr>
+        <tr>
+            <td style="padding: 5px; border: 3px solid black;">Sharp Aquos Crystal Silver (Boost Mobile)</td>
+            <td style="padding: 5px; border: 3px solid black;">Sep 29, 2014</td>
+            <td style="padding: 5px; border: 3px solid black;">by</td>
+            <td style="padding: 5px; border: 3px solid black;">Sharp</td>
+            <td style="padding: 5px; border: 3px solid black;">$128.99</td>
+            <td style="padding: 5px; border: 3px solid black;">$149.99</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">More Buying Choices</td>
+            <td style="padding: 5px; border: 3px solid black;">$122.38</td>
+            <td style="padding: 5px; border: 3px solid black;">new</td>
+            <td style="padding: 5px; border: 3px solid black;">(19 offers)</td>
+            <td style="padding: 5px; border: 3px solid black;">$70.00</td>
+            <td style="padding: 5px; border: 3px solid black;">used</td>
+            <td style="padding: 5px; border: 3px solid black;">(8 offers)</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">3.9 out of 5 stars</td>
+            <td style="padding: 5px; border: 3px solid black;">290</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">FREE Shipping on orders over $35</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">Electronics:</td>
+            <td style="padding: 5px; border: 3px solid black;">See all 7,942,614 items</td>
+        </tr>
+        <tr>
+            <td style="padding: 5px; border: 3px solid black;">Nokia Lumia 530 White - No Contract (T-Mobile)</td>
+            <td style="padding: 5px; border: 3px solid black;">Oct 15, 2014</td>
+            <td style="padding: 5px; border: 3px solid black;">by</td>
+            <td style="padding: 5px; border: 3px solid black;">Nokia</td>
+            <td style="padding: 5px; border: 3px solid black;">$55.99</td>
+            <td style="padding: 5px; border: 3px solid black;">$69.99</td>
+            <td style="padding: 5px; border: 3px solid black;">(3-5 days)</td>
+            <td style="padding: 5px; border: 3px solid black;">Get it by</td>
+            <td style="padding: 5px; border: 3px solid black;">Wednesday, Apr 8</td>
+            <td style="padding: 5px; border: 3px solid black;">More Buying Choices</td>
+            <td style="padding: 5px; border: 3px solid black;">$39.99</td>
+            <td style="padding: 5px; border: 3px solid black;">new</td>
+            <td style="padding: 5px; border: 3px solid black;">(25 offers)</td>
+            <td style="padding: 5px; border: 3px solid black;">$39.99</td>
+            <td style="padding: 5px; border: 3px solid black;">used</td>
+            <td style="padding: 5px; border: 3px solid black;">(8 offers)</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">3.9 out of 5 stars</td>
+            <td style="padding: 5px; border: 3px solid black;">124</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">FREE Shipping on orders over $35</td>
+            <td style="padding: 5px; border: 3px solid black;">Product Features</td>
+            <td style="padding: 5px; border: 3px solid black;">Phone</td>
+            <td style="padding: 5px; border: 3px solid black;">8.1 features you love like Cortana, OneDrive ...</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">Cell Phones &amp; Accessories:</td>
+            <td style="padding: 5px; border: 3px solid black;">See all 7,569,275 items</td>
+        </tr>
+        <tr>
+            <td style="padding: 5px; border: 3px solid black;">Lenovo MA388 Cheap Business / Elders Flip Cell Phone 3.5 Inch with FM / Flashlight / Camera / Bluetooth, Dual...</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">by</td>
+            <td style="padding: 5px; border: 3px solid black;">Lenovo</td>
+            <td style="padding: 5px; border: 3px solid black;">$82.00</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">(3-5 days)</td>
+            <td style="padding: 5px; border: 3px solid black;">Only 13 left in stock - order soon.</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">More Buying Choices</td>
+            <td style="padding: 5px; border: 3px solid black;">$77.38</td>
+            <td style="padding: 5px; border: 3px solid black;">new</td>
+            <td style="padding: 5px; border: 3px solid black;">(6 offers)</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">3.4 out of 5 stars</td>
+            <td style="padding: 5px; border: 3px solid black;">8</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">FREE Shipping on orders over $35</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">Electronics:</td>
+            <td style="padding: 5px; border: 3px solid black;">See all 7,942,614 items</td>
+        </tr>
+        <tr>
+            <td style="padding: 5px; border: 3px solid black;">Apple iPhone 4 8GB (Black) - Verizon</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">by</td>
+            <td style="padding: 5px; border: 3px solid black;">Apple</td>
+            <td style="padding: 5px; border: 3px solid black;">$117.75</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">Only 13 left in stock - order soon.</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">More Buying Choices</td>
+            <td style="padding: 5px; border: 3px solid black;">$113.79</td>
+            <td style="padding: 5px; border: 3px solid black;">new</td>
+            <td style="padding: 5px; border: 3px solid black;">(25 offers)</td>
+            <td style="padding: 5px; border: 3px solid black;">$47.75</td>
+            <td style="padding: 5px; border: 3px solid black;">used</td>
+            <td style="padding: 5px; border: 3px solid black;">(200 offers)</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">3.7 out of 5 stars</td>
+            <td style="padding: 5px; border: 3px solid black;">1,253</td>
+            <td style="padding: 5px; border: 3px solid black;">Trade-in eligible for an Amazon gift card</td>
+            <td style="padding: 5px; border: 3px solid black;">FREE Shipping</td>
+            <td style="padding: 5px; border: 3px solid black;">Product Description</td>
+            <td style="padding: 5px; border: 3px solid black;">phone</td>
+            <td style="padding: 5px; border: 3px solid black;">carrier for details. ...</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">Electronics:</td>
+            <td style="padding: 5px; border: 3px solid black;">See all 7,942,614 items</td>
+        </tr>
+        <tr>
+            <td style="padding: 5px; border: 3px solid black;">GM Grip Easy Universal Mobile Phone Car Mount Holder Cradle for Dashboard Windshield for iPhone 6/6 plus/5s/5c...</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">by</td>
+            <td style="padding: 5px; border: 3px solid black;">General Motors</td>
+            <td style="padding: 5px; border: 3px solid black;">$5.99</td>
+            <td style="padding: 5px; border: 3px solid black;">$39.99</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">Get it by</td>
+            <td style="padding: 5px; border: 3px solid black;">Wednesday, Apr 8</td>
+            <td style="padding: 5px; border: 3px solid black;">More Buying Choices</td>
+            <td style="padding: 5px; border: 3px solid black;">$4.99</td>
+            <td style="padding: 5px; border: 3px solid black;">new</td>
+            <td style="padding: 5px; border: 3px solid black;">(2 offers)</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">4.3 out of 5 stars</td>
+            <td style="padding: 5px; border: 3px solid black;">30</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">FREE Shipping on orders over $35</td>
+            <td style="padding: 5px; border: 3px solid black;">Product Features</td>
+            <td style="padding: 5px; border: 3px solid black;">mobile phone</td>
+            <td style="padding: 5px; border: 3px solid black;">screen 3.2&quot;-6&quot;,Open max=90mm ...</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">Cell Phones &amp; Accessories:</td>
+            <td style="padding: 5px; border: 3px solid black;">See all 7,569,275 items</td>
+        </tr>
+        <tr>
+            <td style="padding: 5px; border: 3px solid black;">LG Realm Black (Boost Mobile)</td>
+            <td style="padding: 5px; border: 3px solid black;">Aug 17, 2014</td>
+            <td style="padding: 5px; border: 3px solid black;">by</td>
+            <td style="padding: 5px; border: 3px solid black;">LG</td>
+            <td style="padding: 5px; border: 3px solid black;">$39.99</td>
+            <td style="padding: 5px; border: 3px solid black;">$79.99</td>
+            <td style="padding: 5px; border: 3px solid black;">(3-5 days)</td>
+            <td style="padding: 5px; border: 3px solid black;">Get it by</td>
+            <td style="padding: 5px; border: 3px solid black;">Wednesday, Apr 8</td>
+            <td style="padding: 5px; border: 3px solid black;">More Buying Choices</td>
+            <td style="padding: 5px; border: 3px solid black;">$32.00</td>
+            <td style="padding: 5px; border: 3px solid black;">new</td>
+            <td style="padding: 5px; border: 3px solid black;">(28 offers)</td>
+            <td style="padding: 5px; border: 3px solid black;">$29.99</td>
+            <td style="padding: 5px; border: 3px solid black;">used</td>
+            <td style="padding: 5px; border: 3px solid black;">(10 offers)</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">4.3 out of 5 stars</td>
+            <td style="padding: 5px; border: 3px solid black;">412</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">FREE Shipping on orders over $35</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">Cell Phones &amp; Accessories:</td>
+            <td style="padding: 5px; border: 3px solid black;">See all 7,569,275 items</td>
+        </tr>
+        <tr>
+            <td style="padding: 5px; border: 3px solid black;">Apple iPhone 4S mobile phone 16Gb Black MD865LL/A - Virgin Mobile</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">by</td>
+            <td style="padding: 5px; border: 3px solid black;">Apple</td>
+            <td style="padding: 5px; border: 3px solid black;">$494.95</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">Only 6 left in stock - order soon.</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">More Buying Choices</td>
+            <td style="padding: 5px; border: 3px solid black;">$144.99</td>
+            <td style="padding: 5px; border: 3px solid black;">used</td>
+            <td style="padding: 5px; border: 3px solid black;">(9 offers)</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">4.5 out of 5 stars</td>
+            <td style="padding: 5px; border: 3px solid black;">22</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">FREE Shipping on orders over $35</td>
+            <td style="padding: 5px; border: 3px solid black;">Product Description</td>
+            <td style="padding: 5px; border: 3px solid black;">phone</td>
+            <td style="padding: 5px; border: 3px solid black;">is locked to the Virgin</td>
+            <td style="padding: 5px; border: 3px solid black;">Mobile</td>
+            <td style="padding: 5px; border: 3px solid black;">Network Carrier. ...</td>
+            <td style="padding: 5px; border: 3px solid black;">Electronics:</td>
+            <td style="padding: 5px; border: 3px solid black;">See all 7,942,614 items</td>
+        </tr>
+        <tr>
+            <td style="padding: 5px; border: 3px solid black;">HTC Desire 510 (A11) Blue (Virgin Mobile)</td>
+            <td style="padding: 5px; border: 3px solid black;">Oct 1, 2014</td>
+            <td style="padding: 5px; border: 3px solid black;">by</td>
+            <td style="padding: 5px; border: 3px solid black;">Virgin</td>
+            <td style="padding: 5px; border: 3px solid black;">$75.00</td>
+            <td style="padding: 5px; border: 3px solid black;">$99.99</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">Get it by</td>
+            <td style="padding: 5px; border: 3px solid black;">Thursday, Apr 9</td>
+            <td style="padding: 5px; border: 3px solid black;">More Buying Choices</td>
+            <td style="padding: 5px; border: 3px solid black;">$57.00</td>
+            <td style="padding: 5px; border: 3px solid black;">new</td>
+            <td style="padding: 5px; border: 3px solid black;">(29 offers)</td>
+            <td style="padding: 5px; border: 3px solid black;">$70.03</td>
+            <td style="padding: 5px; border: 3px solid black;">used</td>
+            <td style="padding: 5px; border: 3px solid black;">(3 offers)</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">3.6 out of 5 stars</td>
+            <td style="padding: 5px; border: 3px solid black;">407</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">FREE Shipping on orders over $35</td>
+            <td style="padding: 5px; border: 3px solid black;">Product Features</td>
+            <td style="padding: 5px; border: 3px solid black;">Mobile</td>
+            <td style="padding: 5px; border: 3px solid black;">Hotspot Capable</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">Cell Phones &amp; Accessories:</td>
+            <td style="padding: 5px; border: 3px solid black;">See all 7,569,275 items</td>
+        </tr>
+        <tr>
+            <td style="padding: 5px; border: 3px solid black;">HTC Desire 816 Black (Virgin mobile)</td>
+            <td style="padding: 5px; border: 3px solid black;">Aug 10, 2014</td>
+            <td style="padding: 5px; border: 3px solid black;">by</td>
+            <td style="padding: 5px; border: 3px solid black;">HTC</td>
+            <td style="padding: 5px; border: 3px solid black;">$179.99</td>
+            <td style="padding: 5px; border: 3px solid black;">$249.99</td>
+            <td style="padding: 5px; border: 3px solid black;">(3-5 days)</td>
+            <td style="padding: 5px; border: 3px solid black;">Get it by</td>
+            <td style="padding: 5px; border: 3px solid black;">Wednesday, Apr 8</td>
+            <td style="padding: 5px; border: 3px solid black;">More Buying Choices</td>
+            <td style="padding: 5px; border: 3px solid black;">$165.99</td>
+            <td style="padding: 5px; border: 3px solid black;">new</td>
+            <td style="padding: 5px; border: 3px solid black;">(5 offers)</td>
+            <td style="padding: 5px; border: 3px solid black;">$168.54</td>
+            <td style="padding: 5px; border: 3px solid black;">used</td>
+            <td style="padding: 5px; border: 3px solid black;">(4 offers)</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">4.6 out of 5 stars</td>
+            <td style="padding: 5px; border: 3px solid black;">866</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">FREE Shipping on orders over $35</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">Cell Phones &amp; Accessories:</td>
+            <td style="padding: 5px; border: 3px solid black;">See all 7,569,275 items</td>
+        </tr>
+        <tr>
+            <td style="padding: 5px; border: 3px solid black;">Nokia Lumia 521 T-Mobile Cell Phone - White</td>
+            <td style="padding: 5px; border: 3px solid black;">Jun 12, 2013</td>
+            <td style="padding: 5px; border: 3px solid black;">by</td>
+            <td style="padding: 5px; border: 3px solid black;">Nokia</td>
+            <td style="padding: 5px; border: 3px solid black;">$44.99</td>
+            <td style="padding: 5px; border: 3px solid black;">$149.99</td>
+            <td style="padding: 5px; border: 3px solid black;">(3-5 days)</td>
+            <td style="padding: 5px; border: 3px solid black;">Get it by</td>
+            <td style="padding: 5px; border: 3px solid black;">Wednesday, Apr 8</td>
+            <td style="padding: 5px; border: 3px solid black;">More Buying Choices</td>
+            <td style="padding: 5px; border: 3px solid black;">$39.40</td>
+            <td style="padding: 5px; border: 3px solid black;">new</td>
+            <td style="padding: 5px; border: 3px solid black;">(71 offers)</td>
+            <td style="padding: 5px; border: 3px solid black;">$23.80</td>
+            <td style="padding: 5px; border: 3px solid black;">used</td>
+            <td style="padding: 5px; border: 3px solid black;">(51 offers)</td>
+            <td style="padding: 5px; border: 3px solid black;">See newer version</td>
+            <td style="padding: 5px; border: 3px solid black;">3.8 out of 5 stars</td>
+            <td style="padding: 5px; border: 3px solid black;">2,061</td>
+            <td style="padding: 5px; border: 3px solid black;">Trade-in eligible for an Amazon gift card</td>
+            <td style="padding: 5px; border: 3px solid black;">FREE Shipping on orders over $35</td>
+            <td style="padding: 5px; border: 3px solid black;">Product Features</td>
+            <td style="padding: 5px; border: 3px solid black;">Mobile</td>
+            <td style="padding: 5px; border: 3px solid black;">Operating System: Windows</td>
+            <td style="padding: 5px; border: 3px solid black;">Phone</td>
+            <td style="padding: 5px; border: 3px solid black;">8</td>
+            <td style="padding: 5px; border: 3px solid black;">Cell Phones &amp; Accessories:</td>
+            <td style="padding: 5px; border: 3px solid black;">See all 7,569,275 items</td>
+        </tr>
+        <tr>
+            <td style="padding: 5px; border: 3px solid black;">Samsung Galaxy S III (S3) Triband White (Boost Mobile)</td>
+            <td style="padding: 5px; border: 3px solid black;">Jun 23, 2012</td>
+            <td style="padding: 5px; border: 3px solid black;">by</td>
+            <td style="padding: 5px; border: 3px solid black;">Samsung</td>
+            <td style="padding: 5px; border: 3px solid black;">$179.99</td>
+            <td style="padding: 5px; border: 3px solid black;">$399.99</td>
+            <td style="padding: 5px; border: 3px solid black;">(3-5 days)</td>
+            <td style="padding: 5px; border: 3px solid black;">Get it by</td>
+            <td style="padding: 5px; border: 3px solid black;">Wednesday, Apr 8</td>
+            <td style="padding: 5px; border: 3px solid black;">More Buying Choices</td>
+            <td style="padding: 5px; border: 3px solid black;">$179.99</td>
+            <td style="padding: 5px; border: 3px solid black;">new</td>
+            <td style="padding: 5px; border: 3px solid black;">(3 offers)</td>
+            <td style="padding: 5px; border: 3px solid black;">$115.00</td>
+            <td style="padding: 5px; border: 3px solid black;">used</td>
+            <td style="padding: 5px; border: 3px solid black;">(25 offers)</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">4.3 out of 5 stars</td>
+            <td style="padding: 5px; border: 3px solid black;">1,597</td>
+            <td style="padding: 5px; border: 3px solid black;">Trade-in eligible for an Amazon gift card</td>
+            <td style="padding: 5px; border: 3px solid black;">FREE Shipping on orders over $35</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">Cell Phones &amp; Accessories:</td>
+            <td style="padding: 5px; border: 3px solid black;">See all 7,569,275 items</td>
+        </tr>
+        <tr>
+            <td style="padding: 5px; border: 3px solid black;">Samsung Galaxy Note 4G LTE SGH-I717 Blue (AT&amp;T)</td>
+            <td style="padding: 5px; border: 3px solid black;">Feb 18, 2012</td>
+            <td style="padding: 5px; border: 3px solid black;">by</td>
+            <td style="padding: 5px; border: 3px solid black;">Samsung</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">$174.95</td>
+            <td style="padding: 5px; border: 3px solid black;">used without contract</td>
+            <td style="padding: 5px; border: 3px solid black;">(2 offers)</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">See newer version</td>
+            <td style="padding: 5px; border: 3px solid black;">4.2 out of 5 stars</td>
+            <td style="padding: 5px; border: 3px solid black;">54</td>
+            <td style="padding: 5px; border: 3px solid black;">Trade-in eligible for an Amazon gift card</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">Product Features</td>
+            <td style="padding: 5px; border: 3px solid black;">Mobile</td>
+            <td style="padding: 5px; border: 3px solid black;">Hotspot service)</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">Electronics:</td>
+            <td style="padding: 5px; border: 3px solid black;">See all 7,942,614 items<br />
+            &nbsp;</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+<hr />
+<h4>How I came to use it</h4>
+<p>In my  project <a href="http://development.weather-view.divshot.io/">weathertest</a> which is,sadly, will never leave it dev status I had to scrape tons of continuous data from different sources. I used <strong>DEPTA</strong> to avoid complexities with manual <strong>xpath</strong> or <strong>RegExp</strong> type scraping.</p>
+<p>Take a look at the great  implementation of this algorithm <a href="https://github.com/scrapinghub/pydepta">here</a></p>
+<hr />
+<p>P.S This is my understanding of this algorithm. If you find it wrong somehow, I am eager to know. Please, write to mklimoff at gmail.com</p>
+<p><em>This post is for education purposes only. Author does not bear any legal  responisbility regarding this post</em></p>
+      </div>
+      <button class="openMore__button">&dArr;</button>
+    </div>
+  
+    <!-- text:string -->
+    <div class="blogPost">
+      <div class="header">
+        <span class="content__halfLineLeft"></span>
+        <a href="http://127.0.0.1:5000/8/" class="content__Symbol stripHREF">&infin;</a>
+        <span class="content__halfLineRight"></span>
+
+       	<div class="blogPostTags">
+       	  
+            
+     	      <a class="tagInline stripHREF" href="static-typing/index.html">static-typing</a>
+      	      
+       	  
+       	</div>
+	<div class="dateElement">
+	  2015.03.15
+	</div>
+      </div>
+      <div class="postContent buttonFinder">
+	<h2>Why typescript</h2>
+<p>Recently, I changed my main  work environment in  browser from <em>coffeescript</em> to <em>typescript</em>.
+Here I am to tell why. And about my  work environment.</p>
+<h4>Coffee advatages over typescript</h4>
+<ul>
+<li>Lots of syntax sugar (Code in coffeescript is generally 30% shorter than typescript)</li>
+<li>Indentation based folding</li>
+<li>... That's it</li>
+</ul>
+<h4>Typescript advantages over Coffee</h4>
+<ul>
+<li>Clear output. Principle is  simple. Just strip typedeclarations and you Do get clean javascript</li>
+<li>They intend to support es6(Coffeescript just does not bother about it)</li>
+<li>Tooling</li>
+<li>Module system (it is also a great disadvantage, see below)</li>
+<li>Typesystem. nuff said</li>
+</ul>
+<h3>Library support</h3>
+<p><a href="https://github.com/borisyankov/DefinitelyTyped">DefinitelyTyped</a> is a very good repository for many js libraries.
+And if You do not have particular library there, you can just write it yourself.
+As I have written it for <a href="http://complete-ly.appspot.com/">completely</a> just in <em>5</em> minutes.
+<code>// Type definitions for complete.ly
+// Project: http://complete-ly.appspot.com/
+// Definitions by: VbifRkbvjd &lt;https://github.com/VbifRkbvjd&gt;
+// Definitions: https://github.com/borisyankov/DefinitelyTyped
+declare module completelyInterfaces {
+    interface ICompletely {
+        (el:HTMLElement,style?:any):IcompletelyInstance
+    }
+    interface IcompletelyInstance {
+        options:string[]
+        startFrom:number
+        setText(data:string):void
+        getText():string
+        onChange:(data:string)=&gt;void
+        repaint():void
+        hideDropDown():void
+        wrapper:HTMLElement
+        prompt:HTMLElement
+        input:HTMLInputElement
+        hint:HTMLInputElement
+        dropDown:HTMLElement
+    }
+}
+declare var completely: completelyInterfaces.ICompletel</code>
+You see that this is pretty straightforward. And, sometimes, might work as library documentation too.</p>
+<h4>My work environment regarding typescript.</h4>
+<p>It is strange to not to use IDE capabilities in a static typed language.
+IDE like support in emacs is quite good via <a href="https://github.com/aki2o/emacs-tss">emacs-tss</a>. But it has two  disadvantages.</p>
+<ol>
+<li>flymake is deprecated (and checking is done via it).</li>
+<li>As a consequence of 1. any large enough file hangs</li>
+</ol>
+<p>I tried to remove flymake from emacs-tss, and replace it with flycheck.
+But it seems that emacs-tss is heavily depend on flymake, and doing so will require major refactoring of this mode.</p>
+<p>So I decided to switch from <em>emacs</em> to <em>Intellij Idea</em>. It has quite good support for typescript. But it also has <em>two disadvantages</em></p>
+<ol>
+<li>Program correctness checking is weird.<ul>
+<li>It, sometimes, show error, when compiler compiles</li>
+<li>It, sometimes, does not show error, although compiler points that error.</li>
+</ul>
+</li>
+<li>IDEA  hangs on React. Whenever  you type <em>React</em> in your <em>ts</em> file, IDEA  hangs, until you remove <em>React</em> from your file.</li>
+</ol>
+<h4>What I dislike about typescript</h4>
+<p>The one thing, that is <em>definitely wrong</em> in typescript is <em>module system</em>.</p>
+<p>There are two concepts:</p>
+<ul>
+<li>Internal modules</li>
+<li>External modules</li>
+</ul>
+<p>The difference between them is that <em>external  modules</em> are about to work with <em>require.js</em> or <em>browserify</em>,
+when <em>internal modules</em> are about to glue your js files into one.
+You cannot use internal and external modules  at the same time.
+And there are more intricate delicacies, like, you cannot glue module from different files if you use external system. And You can if you use internal.
+So, for this I was going to kill someone, untill I made a hack solution</p>
+<h4>Hack solution(No young and sensitive coders allowed)</h4>
+<p>Here is the schema I came, when I bump my head enough.
+Assume that I am working  in <em>node-webkit</em>. So here it is:</p>
+<ul>
+<li>Dependencies:   <em>deps.js</em></li>
+<li>Compiler-ouput(one file compiled with internal module system):                    <em>SomeSystemGlued.js</em></li>
+</ul>
+<p>And <em>deps.js</em> contain something like:
+<code>window.Q = require("q")
+window.R = React // because of "love" idea has to React(hangs)
+window.NWGUI = require("nw.gui")
+window._     = require("lodash")
+window.path  = require("path")
+window.fs    = require("fs-extra")
+// e.t.c</code>
+And then, every subsystem just use these from related <em>d.ts</em> files. As they are just  globals.</p>
+      </div>
+      <button class="openMore__button">&dArr;</button>
+    </div>
+  
+    <!-- text:string -->
+    <div class="blogPost">
+      <div class="header">
+        <span class="content__halfLineLeft"></span>
+        <a href="http://127.0.0.1:5000/9/" class="content__Symbol stripHREF">&infin;</a>
+        <span class="content__halfLineRight"></span>
+
+       	<div class="blogPostTags">
+       	  
+            
+     	      <a class="tagInline stripHREF" href="static-typing/index.html">static-typing</a>
+      	      
+       	  
+       	</div>
+	<div class="dateElement">
+	  2015.03.14
+	</div>
+      </div>
+      <div class="postContent buttonFinder">
+	<h2>How I came to use static typing</h2>
+<p>I have been "dynamic" for the most of my career in programming(Which is not a lot,for about 3 years of actual development in python and js.)</p>
+<p>Being dynamic was not because of some conscious decision.</p>
+<p>Just, when you start programming(having no CS background) dynamic typing seems less mundane, and more appealing for someone outside of development.</p>
+<p>Now, nearly a month ago I switched my preferences to static typing languages, and here I am to explain why.</p>
+<p>During my work, I found out,and, I sure, most of software engineers do, that  programming mostly
+is not about crunching numbers,  but about connection in general.</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>I would formulate this software development principle  as knowledge about connection and composition.</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h4>Let me elaborate.</h4>
+<p>When You are writing a new program it is about 80% of connection other people code in a new way than about writing some genuinely new code.
+So that is why, program language  matter less than  having good  libraries for any possible case.</p>
+<p>This principle directly applies to static typing.
+Because static  typing <em>is</em>  about  connecting things. And compiler will tell you, if you connected them wrong.
+For example:</p>
+<ul>
+<li>It is not about withdraw(account_id:number,sum:number).</li>
+<li>It is about withdraw(account:Account,sum:MoneyManager).</li>
+</ul>
+<p>In the second case, you defined what Account is, and what MoneyManager is.</p>
+<p>And withdraw will only work on accounts, and MoneyManagers.</p>
+<p>So, when You forgot, what is withdraw about, You can always look at signature, look at definition of account and sum.
+It allows you to write deeper programs, you are not restricted in connecting things just by numbers and strings. 
+And you will never mistake pipes. And if you will, compiler will tell you about it.
+I deliberately do not mention obvious:</p>
+<ul>
+<li>IDE support</li>
+<li>ease of understanding</li>
+<li>speed of compiled program</li>
+</ul>
+<p>Because everybody already knows that.</p>
+      </div>
+      <button class="openMore__button">&dArr;</button>
+    </div>
+  
+    <!-- text:string -->
+    <div class="blogPost">
+      <div class="header">
+        <span class="content__halfLineLeft"></span>
+        <a href="http://127.0.0.1:5000/10/" class="content__Symbol stripHREF">&infin;</a>
+        <span class="content__halfLineRight"></span>
+
+       	<div class="blogPostTags">
+       	  
+            
+     	      <a class="tagInline stripHREF" href="Hello/index.html">Hello</a>
+      	      
+       	  
+            
+     	      <a class="tagInline stripHREF" href="Contacts/index.html">Contacts</a>
+      	      
+       	  
+       	</div>
+	<div class="dateElement">
+	  2015.02.28
+	</div>
+      </div>
+      <div class="postContent buttonFinder">
+	<h2>Hello. My name is Michael, and this is my blog.</h2>
+<p>Here you can find my thoughts on nearly anything related to my life
+I can code in</p>
+<ul>
+<li><em>python</em></li>
+<li><em>javascript</em>(though I prefer <strong>typescript|coffeescript</strong>)</li>
+<li><em>clojure|clojurescript</em>(though I do not generally like it)</li>
+</ul>
+<h4>Libraries, frameworks,e.t.c.</h4>
+<p>I cannot possibly remember all of them, but If you name one, There is a certain chance, that I have at least got acquainted with it.
+Here is the first things that come up in mind</p>
+<ul>
+<li>JS: React,underscore,jquery,facebook-flux,videojs,node-webkit,jasmine...</li>
+<li>Python: flask,pyqt,pyside,pythonGtk...</li>
+</ul>
+<p>Now I am studying:</p>
+<ul>
+<li>scala</li>
+<li>java</li>
+</ul>
+<p>My super small   projects are:</p>
+<ul>
+<li>pomodorro-clined (40 minutes  of work)</li>
+<li>this blog-engine (83 minutes  of work)</li>
+<li>hebrew-phonetic  (for about an hour of work)</li>
+</ul>
+<p>My  medium size  projects are:</p>
+<ul>
+<li><a href="http://www.rarebooks.ru">Rarebooks</a> (e-shop. Fully from scratch. Written in <em>django</em> (Do not be afraid of design, it was not my decision))</li>
+<li>tagger--clined  It is commandline file organizer(I am intending to post it to github) (I will explain its possibilities at ongoing posts)</li>
+<li>weather--data   (dead, because needs good financing)(massive weather data scraper and comparator)</li>
+</ul>
+<p>My ongoing projects are:</p>
+<ul>
+<li>askdesiderata.com (no site right now)</li>
+<li>metator (no site right now)</li>
+<li>looper  (no site right now)</li>
+</ul>
+<p>I use any tools  provided,but my favourite is <strong>emacs</strong>
+I have  B.Sc in economics and I play piano.</p>
+<!-- If you are intended to hire me, you are welcome at **mklimoff222** at **google mail com**. -->
+      </div>
+      <button class="openMore__button">&dArr;</button>
+    </div>
+  
+    <!-- text:string -->
+    <div class="blogPost">
+      <div class="header">
+        <span class="content__halfLineLeft"></span>
+        <a href="http://127.0.0.1:5000/11/" class="content__Symbol stripHREF">&infin;</a>
+        <span class="content__halfLineRight"></span>
+
+       	<div class="blogPostTags">
+       	  
+            
+     	      <a class="tagInline stripHREF" href="python/index.html">python</a>
+      	      
+       	  
+            
+     	      <a class="tagInline stripHREF" href="hour-of-coding/index.html">hour-of-coding</a>
+      	      
+       	  
+            
+     	      <a class="tagInline stripHREF" href="jinja2/index.html">jinja2</a>
+      	      
+       	  
+       	</div>
+	<div class="dateElement">
+	  2015.02.28
+	</div>
+      </div>
+      <div class="postContent buttonFinder">
+	<h2>One hour of coding.</h2>
+<blockquote>
+<p>During this contest, I indend to write something useful for about an  hour.
+This blog engine  was made exactly at one hour, and 23 minutes.
+During  this time I:</p>
+</blockquote>
+<ol>
+<li>Thought out the design and concept of blog</li>
+<li>Studied jinja2 and flask frameworks</li>
+<li>Studied ways of calculation tag sizes in a cloud</li>
+<li>Implemented tagging system</li>
+<li>Implemented some beautify tricks with jquery</li>
+<li>Made design,and impleneted it</li>
+<li>Debugged the result.</li>
+<li>Figured out how to use <em>Flask-static</em></li>
+<li>Deployed it to github</li>
+</ol>
+<p><strong>Estimated time is 83  minutes.</strong></p>
+<h5>Here goes architectural overview</h5>
+<p>In settings I've got navigation struct, like this:
+<code>{
+  "hello.html":           {"date":"2015.02.28","tags":{"Hello","Contacts"},"posted":True},
+  "firstBlogPost.html":   {"date":"2015.02.28","tags":{"hour-of-coding", "python","jinja2"},"posted":True},
+  "testPost.html":        {"date":"2015.02.28","tags":{"hour-of-coding", "python","jinja2"},"posted":True},
+  "howToUseMarkDown.html":{"date":"2015.02.28","tags":{"markdown-tutorial","notForPeople"}, "posted":True},
+  }</code>
+Here <strong>key</strong> is a category, and <strong>set tags</strong> contains  possible categories for this kind of blogpost.</p>
+<p><code>{% filter markdown %}
+  My beautiful markdown
+{% endfilter %}</code></p>
+<p>It is done like this, to have the ability implementing something, that is not possible in markdown.</p>
+<p>That is it. Very simple  straightforward, and easy to deploy in a static environment.</p>
+<p>This blogEngine was definitely not possible without  <em>typeplate</em>,<em>flask</em>,<em>jQuery</em>,<em>neat</em>,<em>bourbon</em> and lots of other free libraries.</p>
+<p>Todo related to this project:</p>
+<ul>
+<li>Flush this blogEngine to github</li>
+<li>Change fixed left side, to make it work properly on different screens</li>
+<li>Write some docs on it.</li>
+</ul>
+<p>There was some gotchas, that I will explain in other blogposts</p>
+<p>P.S I  am now working on system, that resembles similar concepts, called metator-tagger. </p>
+      </div>
+      <button class="openMore__button">&dArr;</button>
+    </div>
+    
+
+    </div>
+  </div>    
+</body>
+</html>
