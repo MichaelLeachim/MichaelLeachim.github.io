@@ -16,6 +16,22 @@ html {
   color: white;
   background: black; }
 
+h1 {
+  font-size: 9vh !important; }
+
+h2 {
+  font-size: 5.57vh !important; }
+
+h3 {
+  font-size: 3.444vh !important; }
+
+.blogPost {
+  font-size: 3.444vh !important;
+  line-height: 5.57vh !important; }
+  .blogPost p {
+    margin: 0px;
+    line-height: 5.57vh; }
+
 .mainSection {
   max-width: 68em;
   margin-left: auto;
@@ -51,7 +67,7 @@ html {
         display: block;
         width: 250px;
         position: fixed;
-        top: 40%;
+        top: 23.6%;
         text-align: justify; } }
   .mainSection #content {
     float: left;
