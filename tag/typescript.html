@@ -1,0 +1,314 @@
+<!-- blogPosts:text[] -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en">
+<head>
+  <title>Michael's blog</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="../main.css">
+  <link rel="stylesheet" type="text/css" href="../highlight/styles/solarized_dark.css">
+  <script type="text/javascript"  src="../jquery.min.js"></script>
+  <script type="text/javascript"  src="../main.js"></script>
+  <script type="text/javascript"  src="../highlight/highlight.pack.js"></script>
+  
+</head>
+<body>
+  <div class="mainSection">
+    <div id="navigation">
+      <div id="gertruda">
+	<a href="../index.html" class="stripHREF" id="symbol">
+	</a>
+	<div id="slogan">
+	</div>
+      </div>
+      <div id="spacer"></div>	
+      <!-- tag.name:string -->
+<!-- tag.size:number -->
+<!-- tagsList:tag[] -->
+<!-- selectedTagSet:set<string> -->
+<div class="tagContainer">
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="Architecture.html" style="font-size:2.8vh;">Architecture</a>
+    
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="Contacts.html" style="font-size:2.8vh;">Contacts</a>
+    
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="DEPTA.html" style="font-size:2.8vh;">DEPTA</a>
+    
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="DataMining.html" style="font-size:2.8vh;">DataMining</a>
+    
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="GoLang.html" style="font-size:2.8vh;">GoLang</a>
+    
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="Hello.html" style="font-size:2.8vh;">Hello</a>
+    
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="TypeScript.html" style="font-size:2.8vh;">TypeScript</a>
+    
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="debian.html" style="font-size:3.9vh;">debian</a>
+    
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="flask.html" style="font-size:2.8vh;">flask</a>
+    
+  
+    
+      		   
+    		   
+    
+        <a class="tag bigTag stripHREF " href="hour-of-coding.html" style="font-size:5vh;">hour-of-coding</a>
+    
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="immutable.js.html" style="font-size:2.8vh;">immutable.js</a>
+    
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="jinja2.html" style="font-size:2.8vh;">jinja2</a>
+    
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="nameConvention.html" style="font-size:2.8vh;">nameConvention</a>
+    
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="play-video.html" style="font-size:2.8vh;">play-video</a>
+    
+  
+    
+      		   
+    		   
+    
+        <a class="tag bigTag stripHREF " href="python.html" style="font-size:6.1vh;">python</a>
+    
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="scraping.html" style="font-size:2.8vh;">scraping</a>
+    
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="static-typing.html" style="font-size:3.9vh;">static-typing</a>
+    
+  
+    
+      		   
+    		   
+    
+        <a class="tag bigTag stripHREF " href="tutorial.html" style="font-size:7.2vh;">tutorial</a>
+    
+  
+    
+      
+    		   
+    
+        <span class="tag tag__selected stripHREF smallTag" href="/tag/typescript" style="font-size:2.8vh;">typescript</span>
+    
+  
+</div>    
+
+    </div>
+    <div id="content">
+      <!-- <h3>Hello I am Michael. I write stuff and play piano</h3> -->
+      
+  
+    <!-- text:string -->
+    <div class="blogPost">
+      <div class="header">
+        <span class="content__halfLineLeft"></span>
+        <a href="../post/752622601.html" class="content__Symbol stripHREF">&infin;</a>
+        <span class="content__halfLineRight"></span>
+       	<div class="blogPostTags">
+       	  
+            
+     	      <a class="tagInline stripHREF" href="DataMining.html">DataMining</a>
+      	      
+       	  
+            
+              <span class="tagInLine__selected stripHREF" href="/tag/typescript">typescript</span>
+              
+       	  
+       	</div>
+	<div class="dateElement">
+	  2015.04.10
+	</div>
+      </div>
+      <div class="postContent buttonFinder">
+        <h2 id="simulated-annealing-for-complete-dummies-like-me-">Simulated annealing for complete dummies[like me]</h2>
+<p>What is the way of understanding some complex thing.
+It is to try to find the easiest possible example of using it.
+So, we will use <strong>simulated annealing</strong> for working out simple equasion. Here it is:</p>
+<pre><code>  (x+123)*(x-47)*(x+19)*(x-96) = 0
+</code></pre><p>Our task is to find at least one root of this equasion. </p>
+<h3 id="step-one-define-api-it-will-work-as-interface-between-any-problem-and-algorithm">Step one. Define API. It will work as interface between any problem, and algorithm</h3>
+<p>Here it is.
+```interface IProblem<DataFrame> {
+     energy:(data:DataFrame)=&gt;number
+     neighbour:(data:DataFrame)=&gt;DataFrame
+     startingTemp:number
+     stopTemp:number
+     decreaseRate:number
+     initState:DataFrame
+ }</p>
+<pre><code>**energy** is a function which will give *rating* to our state. And it looks like this:
+```function(x:number):number{
+    return Math.abs((110+x)*(213+x)*(245+x)*(143+x))
+}
+</code></pre><p>Several notes:</p>
+<ol>
+<li><strong>energy</strong> function must be positive.</li>
+<li>For simplicity sake we use the simpliest format <strong>number</strong> of data representation.</li>
+</ol>
+<p>Second one is <strong>neighbour</strong> function. It takes state,and derives state with similar energy. The first thing that comes to mind is just to use -1 +1 array. Like this:</p>
+<pre><code class="lang-function(data:number){">     return data + _.sample([-1,1])
+},
+</code></pre>
+<p><strong>_.sample</strong> function takes random element from array. It is from <a href="https://lodash.com/docs">lodash</a>.</p>
+<p>Following params are algorithm  constants. People suggest to change them empirically to find what fits best  for your problem</p>
+<pre><code class="lang-startingTemp:number">stopTemp:number
+decreaseRate:number
+</code></pre>
+<p>Formula in function <strong>ifChange</strong> usually stays unchanged on every problem. &quot;This formula was superficially justified by analogy with the transitions of a physical system&quot; says <a href="http://en.wikipedia.org/wiki/Simulated_annealing#Acceptance_probabilities_2">wiki</a>.
+Pseudocode:</p>
+<pre><code>  #Acceptance probability
+def ifChange(energy:number,newEnergy:number,temperature:number):boolean
+  #This solution is better. Use it
+  if newEnergy&lt;energy
+    return true
+  #This solution is worse. Determine if we use it by Acceptance_probabilities described from above 
+  random:number = Math.random()
+  probability:number = Math.pow(Math.E,((energy-newEnergy)/temperature))
+  return probability&gt;=random
+ #annealing
+currentState  = someRandomState
+bestState     = currentState
+while currentTemperature &gt; minimumTemperature:
+  newState = neighbour(currentState)
+  # determine if Algorithm should jump to another state
+  if ifChange(energy(currentState),energy(newState),currentTemperature)
+    currentState = newState
+  # keep best solution     
+  if energy(currentState) &lt; energy(bestState) 
+    bestState = currentState
+  decreaseTemperature()
+</code></pre><p>So. Here is an implementation of that algorithm in <strong>Typescript</strong>:</p>
+<pre><code>function  ifChange(energy:number,newEnergy:number,temperature:number):boolean{
+  // This solution is better. Use it
+  if (newEnergy&lt;energy){
+    return true
+  }
+  // Choose if we are to use worse solution or not
+    var random:number = Math.random()
+    var probability:number = Math.pow(Math.E,((energy-newEnergy)/temperature))
+    return probability&gt;=random
+  }
+export function Solution&lt;DataFrame&gt;(data:IProblem&lt;DataFrame&gt;){
+  var state        = data.initState
+  var bestState    = data.initState
+  var nowTemp      = data.startingTemp
+  console.log(&quot;Starting optimization with state: &quot;,state,
+              &quot; and startingTemp: &quot;,data.startingTemp)
+  while(nowTemp&gt;data.stopTemp){
+    var newRandomState = data.neighbour(state)
+    if(ifChange(data.energy(state),data.energy(newRandomState),nowTemp)){
+      state = newRandomState
+    }
+    nowTemp= nowTemp * (1-data.decreaseRate)
+    // Keep track of the best solution found
+    if (data.energy(state) &lt; data.energy(bestState)) {
+      bestState = state
+    }
+  }
+  console.log(&quot;Cooled down. Best solution so far: &quot;,bestState,
+              &quot;with energy: &quot;,data.energy(bestState))
+  return bestState
+}
+</code></pre><p>And here is a definition of our problem in terms of defined architecture:</p>
+<pre><code>module SampleAnnealingSolution {
+  var quadratic:Annealing.IProblem&lt;number&gt; = {
+    energy:function(x:number):number{
+      return Math.abs((110+x)*(213+x)*(245+x)*(143+x))
+    },
+    neighbour:function(data:number){
+      return data + _.sample([-3,-2,-1,1,2,3])
+    },
+    startingTemp:40000,
+    stopTemp:0.4,
+    decreaseRate:0.03,
+    initState:0
+  }
+  console.log(Annealing.Solution(quadratic))
+}
+</code></pre><ul>
+<li>You can play with constants to find what  suits your problem best.</li>
+<li><p>This algorithm will find only one root. You can use it to find all roots of arbitrary equation by running algorithm consequently.</p>
+<p>Source code can be found <a href="https://github.com/VbifRkbvjd/simpleAnnealing">here</a></p>
+</li>
+</ul>
+<p>Running code from above will give you something like this in dev. console:
+<img src="../public/annealingResult.png" width="100%"></p>
+
+      </div>
+      <button class="openMore__button" href="/post/752622601">&dArr;</button>
+    </div>
+    
+
+    </div>
+  </div>    
+</body>
+</html>

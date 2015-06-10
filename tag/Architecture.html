@@ -1,0 +1,257 @@
+<!-- blogPosts:text[] -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en">
+<head>
+  <title>Michael's blog</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="../main.css">
+  <link rel="stylesheet" type="text/css" href="../highlight/styles/solarized_dark.css">
+  <script type="text/javascript"  src="../jquery.min.js"></script>
+  <script type="text/javascript"  src="../main.js"></script>
+  <script type="text/javascript"  src="../highlight/highlight.pack.js"></script>
+  
+</head>
+<body>
+  <div class="mainSection">
+    <div id="navigation">
+      <div id="gertruda">
+	<a href="../index.html" class="stripHREF" id="symbol">
+	</a>
+	<div id="slogan">
+	</div>
+      </div>
+      <div id="spacer"></div>	
+      <!-- tag.name:string -->
+<!-- tag.size:number -->
+<!-- tagsList:tag[] -->
+<!-- selectedTagSet:set<string> -->
+<div class="tagContainer">
+  
+    
+      
+    		   
+    
+        <span class="tag tag__selected stripHREF smallTag" href="/tag/Architecture" style="font-size:2.8vh;">Architecture</span>
+    
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="Contacts.html" style="font-size:2.8vh;">Contacts</a>
+    
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="DEPTA.html" style="font-size:2.8vh;">DEPTA</a>
+    
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="DataMining.html" style="font-size:2.8vh;">DataMining</a>
+    
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="GoLang.html" style="font-size:2.8vh;">GoLang</a>
+    
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="Hello.html" style="font-size:2.8vh;">Hello</a>
+    
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="TypeScript.html" style="font-size:2.8vh;">TypeScript</a>
+    
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="debian.html" style="font-size:3.9vh;">debian</a>
+    
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="flask.html" style="font-size:2.8vh;">flask</a>
+    
+  
+    
+      		   
+    		   
+    
+        <a class="tag bigTag stripHREF " href="hour-of-coding.html" style="font-size:5vh;">hour-of-coding</a>
+    
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="immutable.js.html" style="font-size:2.8vh;">immutable.js</a>
+    
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="jinja2.html" style="font-size:2.8vh;">jinja2</a>
+    
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="nameConvention.html" style="font-size:2.8vh;">nameConvention</a>
+    
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="play-video.html" style="font-size:2.8vh;">play-video</a>
+    
+  
+    
+      		   
+    		   
+    
+        <a class="tag bigTag stripHREF " href="python.html" style="font-size:6.1vh;">python</a>
+    
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="scraping.html" style="font-size:2.8vh;">scraping</a>
+    
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="static-typing.html" style="font-size:3.9vh;">static-typing</a>
+    
+  
+    
+      		   
+    		   
+    
+        <a class="tag bigTag stripHREF " href="tutorial.html" style="font-size:7.2vh;">tutorial</a>
+    
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="typescript.html" style="font-size:2.8vh;">typescript</a>
+    
+  
+</div>    
+
+    </div>
+    <div id="content">
+      <!-- <h3>Hello I am Michael. I write stuff and play piano</h3> -->
+      
+  
+    <!-- text:string -->
+    <div class="blogPost">
+      <div class="header">
+        <span class="content__halfLineLeft"></span>
+        <a href="../post/166860476.html" class="content__Symbol stripHREF">&infin;</a>
+        <span class="content__halfLineRight"></span>
+       	<div class="blogPostTags">
+       	  
+            
+     	      <a class="tagInline stripHREF" href="nameConvention.html">nameConvention</a>
+      	      
+       	  
+            
+              <span class="tagInLine__selected stripHREF" href="/tag/Architecture">Architecture</span>
+              
+       	  
+            
+     	      <a class="tagInline stripHREF" href="tutorial.html">tutorial</a>
+      	      
+       	  
+       	</div>
+	<div class="dateElement">
+	  2015.05.21
+	</div>
+      </div>
+      <div class="postContent buttonFinder">
+        <h2 id="naming-convention">Naming convention</h2>
+<blockquote>
+<p>There are only two hard things in Computer Science: cache invalidation and naming things.</p>
+<p>-- <cite>Phil Karlton</cite></p>
+</blockquote>
+<p>Let&#39;s talk about the second thing.
+Here is my solution, inspired by tagging and filtering systems.
+In the future I intend to write a special program for handling this name convention.
+The core idea is to name functions by separate <em>tags</em> of functionality they are intended to.</p>
+<hr>
+<p>Here is a quick overview</p>
+<pre><code>database_node_withTags(node,tags)
+database_node_withDescription(node,description)
+node_reDisplay(*params)
+node_reDisplay_withFancyGraph(*params)
+tag_rename
+display_onEvent_tag
+conversion_node_tag_tagToNode
+</code></pre><p>  The trick is to name each <strong><em>element</em></strong> as a separate essence with <strong>one restriction</strong>. You should name your functions in alphabet order.
+  (You will see later why it is needed)</p>
+<hr>
+<h3 id="how-is-it-useful">How  is it useful</h3>
+<p>It answers to a simple question. <em>How can I find something not remembering its name</em>. Here is an example:</p>
+<p><strong><em>tag</em></strong> will find any function that somehow is related to a <em>tag</em>:</p>
+<ul>
+<li>deletion</li>
+<li>insertion</li>
+<li>saving to database</li>
+<li>deleting from somewhere</li>
+<li>connecting to node</li>
+<li>joining events</li>
+</ul>
+<p><strong><em>onEvent</em>.*<em>tag</em></strong> regular expression  will find any function that somehow connected to <strong>tag</strong> AND <strong>onEvent</strong> at the same time:
+E.g:</p>
+<ul>
+<li>saving tag on Event occuring</li>
+</ul>
+<p><strong><em>save</em>.*<em>tag</em></strong> regular expression will find any function that is <strong>saving something</strong> AND related to a <strong>tag</strong></p>
+<p>E.g:</p>
+<ul>
+<li>save tag to database</li>
+<li>save tag into app state</li>
+<li>save tag toJson</li>
+</ul>
+<hr>
+<h3 id="your-algorithm-to-implement-this-convention">Your algorithm to implement this convention</h3>
+<ol>
+<li>Determine delimiter (_ or $ or -) what your language accepts as a name of variable</li>
+<li>Determine a number of simple nouns. E.g(is,tag,node,saveToDb,convert,display,e.t.c)</li>
+<li>Place this number of nouns in your variable name for</li>
+</ol>
+<p>Please. Tell me if You find it useful, or have any great suggestions at <em>mklimoff222</em> at <em>gmail</em></p>
+
+      </div>
+      <button class="openMore__button" href="/post/166860476">&dArr;</button>
+    </div>
+    
+
+    </div>
+  </div>    
+</body>
+</html>

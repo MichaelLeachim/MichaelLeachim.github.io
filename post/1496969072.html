@@ -1,0 +1,683 @@
+<!-- blogPosts:text[] -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en">
+<head>
+  <title>Michael's blog</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="../main.css">
+  <link rel="stylesheet" type="text/css" href="../highlight/styles/solarized_dark.css">
+  <script type="text/javascript"  src="../jquery.min.js"></script>
+  <script type="text/javascript"  src="../main.js"></script>
+  <script type="text/javascript"  src="../highlight/highlight.pack.js"></script>
+  
+</head>
+<body>
+  <div class="mainSection">
+    <div id="navigation">
+      <div id="gertruda">
+	<a href="../index.html" class="stripHREF" id="symbol">
+	</a>
+	<div id="slogan">
+	</div>
+      </div>
+      <div id="spacer"></div>	
+      <!-- tag.name:string -->
+<!-- tag.size:number -->
+<!-- tagsList:tag[] -->
+<!-- selectedTagSet:set<string> -->
+<div class="tagContainer">
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="../tag/Architecture.html" style="font-size:2.8vh;">Architecture</a>
+    
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="../tag/Contacts.html" style="font-size:2.8vh;">Contacts</a>
+    
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="../tag/DEPTA.html" style="font-size:2.8vh;">DEPTA</a>
+    
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="../tag/DataMining.html" style="font-size:2.8vh;">DataMining</a>
+    
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="../tag/GoLang.html" style="font-size:2.8vh;">GoLang</a>
+    
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="../tag/Hello.html" style="font-size:2.8vh;">Hello</a>
+    
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="../tag/TypeScript.html" style="font-size:2.8vh;">TypeScript</a>
+    
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="../tag/debian.html" style="font-size:3.9vh;">debian</a>
+    
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="../tag/flask.html" style="font-size:2.8vh;">flask</a>
+    
+  
+    
+      		   
+    		   
+    
+        <a class="tag bigTag stripHREF " href="../tag/hour-of-coding.html" style="font-size:5vh;">hour-of-coding</a>
+    
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="../tag/immutable.js.html" style="font-size:2.8vh;">immutable.js</a>
+    
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="../tag/jinja2.html" style="font-size:2.8vh;">jinja2</a>
+    
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="../tag/nameConvention.html" style="font-size:2.8vh;">nameConvention</a>
+    
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="../tag/play-video.html" style="font-size:2.8vh;">play-video</a>
+    
+  
+    
+      		   
+    		   
+    
+        <a class="tag bigTag stripHREF " href="../tag/python.html" style="font-size:6.1vh;">python</a>
+    
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="../tag/scraping.html" style="font-size:2.8vh;">scraping</a>
+    
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="../tag/static-typing.html" style="font-size:3.9vh;">static-typing</a>
+    
+  
+    
+      		   
+    		   
+    
+        <a class="tag bigTag stripHREF " href="../tag/tutorial.html" style="font-size:7.2vh;">tutorial</a>
+    
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="../tag/typescript.html" style="font-size:2.8vh;">typescript</a>
+    
+  
+</div>    
+
+    </div>
+    <div id="content">
+      <!-- <h3>Hello I am Michael. I write stuff and play piano</h3> -->
+      
+
+<div class="blogPost">
+  <h2 id="depta-for-data-scraping">Depta for data scraping</h2>
+<p>Hello  My dear reader.
+Today I am to tell about great library that should definitely been known more</p>
+<p>Have you ever wondered how you can extract data from web automatically without <strong>RegExp</strong> or <strong>xpath</strong> based parsers like <a href="http://lxml.de/">lxml</a>.</p>
+<hr>
+<h4 id="state-the-problem">State the problem</h4>
+<p>Imagine, You&#39;ve got to scrape data from <strong>time series, forum posts or shop catalogues</strong>. Take for example this <a href="http://www.amazon.com/s/ref=nb_sb_noss_2?url=search-alias%3Daps&amp;field-keywords=mobile+phones">one</a>. You have to extract every data item and do it continuosly e.g <em>this day, tomorrow, next week e.t.c</em>. Here are the problems that you will definitely come across  with xpathes or regexps:</p>
+<ul>
+<li>Change in  site markdown. (Another branch, move of table e.t.c)</li>
+<li>Change in  data format. Was $, changed to USD. Dot was removed, or million other things.</li>
+</ul>
+<hr>
+<h4 id="depta-to-the-rescue">DEPTA to the rescue</h4>
+<p>DEPTA, which is stated <strong>Data Extraction Based on Partial Tree Alignment</strong> algorithm was published in <a href="http://dl.acm.org/citation.cfm?id=1060761">Web Data Extraction Based on Partial Tree Alignment</a> paper by <strong>Yanhong Zhai</strong> and  <strong>Bing Liu</strong>. I definitely recomment read it if you are interested in data scraping.
+It is based on the assumption, that meaningful repeating  parts of web page will share common HTML structure  between them.</p>
+<hr>
+<h4 id="how-does-it-work">How does it work</h4>
+<p>In a very simplified way the algorithm works like that:</p>
+<ol>
+<li>Find parent HTML node whose children  subtrees are similar between themselves using <em>Edit distance between trees</em></li>
+<li>Align each subchild  of children subtree in column, that each element in that column share common metrics. Like xpath to this element in subtree.</li>
+</ol>
+<hr>
+<h4 id="so-how-does-it-help">So How does it help</h4>
+<p>Remember this heavy <a href="http://www.amazon.com/s/ref=nb_sb_noss_2?url=search-alias%3Daps&amp;field-keywords=mobile+phones">web page</a> site.
+Result will look somehow like this. I intentionally omit other tables. It can be done authomatically using simple heuristics like <a href="http://en.wikipedia.org/wiki/Naive_Bayes_classifier">Naive Bayes</a></p>
+<div class="HTMLContainer">
+<h2>table 3</h2>
+<table style="border-collapse: collapse; border: 3px solid black;">
+    <tbody>
+        <tr>
+            <td style="padding: 5px; border: 3px solid black;">Moto G Black (Boost Mobile)</td>
+            <td style="padding: 5px; border: 3px solid black;">Oct 27, 2013</td>
+            <td style="padding: 5px; border: 3px solid black;">by</td>
+            <td style="padding: 5px; border: 3px solid black;">MOTCB</td>
+            <td style="padding: 5px; border: 3px solid black;">$44.99</td>
+            <td style="padding: 5px; border: 3px solid black;">$129.99</td>
+            <td style="padding: 5px; border: 3px solid black;">(3-5 days)</td>
+            <td style="padding: 5px; border: 3px solid black;">Only 7 left in stock - order soon.</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">More Buying Choices</td>
+            <td style="padding: 5px; border: 3px solid black;">$38.99</td>
+            <td style="padding: 5px; border: 3px solid black;">new</td>
+            <td style="padding: 5px; border: 3px solid black;">(26 offers)</td>
+            <td style="padding: 5px; border: 3px solid black;">$29.90</td>
+            <td style="padding: 5px; border: 3px solid black;">used</td>
+            <td style="padding: 5px; border: 3px solid black;">(13 offers)</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">4.4 out of 5 stars</td>
+            <td style="padding: 5px; border: 3px solid black;">359</td>
+            <td style="padding: 5px; border: 3px solid black;">Trade-in eligible for an Amazon gift card</td>
+            <td style="padding: 5px; border: 3px solid black;">FREE Shipping on orders over $35</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">Electronics:</td>
+            <td style="padding: 5px; border: 3px solid black;">See all 7,942,614 items</td>
+        </tr>
+        <tr>
+            <td style="padding: 5px; border: 3px solid black;">HTC Desire 510 (A11) White (Boost Mobile)</td>
+            <td style="padding: 5px; border: 3px solid black;">Oct 1, 2014</td>
+            <td style="padding: 5px; border: 3px solid black;">by</td>
+            <td style="padding: 5px; border: 3px solid black;">Boost</td>
+            <td style="padding: 5px; border: 3px solid black;">$66.94</td>
+            <td style="padding: 5px; border: 3px solid black;">$99.99</td>
+            <td style="padding: 5px; border: 3px solid black;">(3-5 days)</td>
+            <td style="padding: 5px; border: 3px solid black;">Get it by</td>
+            <td style="padding: 5px; border: 3px solid black;">Thursday, Apr 9</td>
+            <td style="padding: 5px; border: 3px solid black;">More Buying Choices</td>
+            <td style="padding: 5px; border: 3px solid black;">$60.50</td>
+            <td style="padding: 5px; border: 3px solid black;">new</td>
+            <td style="padding: 5px; border: 3px solid black;">(64 offers)</td>
+            <td style="padding: 5px; border: 3px solid black;">$49.90</td>
+            <td style="padding: 5px; border: 3px solid black;">used</td>
+            <td style="padding: 5px; border: 3px solid black;">(14 offers)</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">3.6 out of 5 stars</td>
+            <td style="padding: 5px; border: 3px solid black;">407</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">FREE Shipping on orders over $35</td>
+            <td style="padding: 5px; border: 3px solid black;">Product Description</td>
+            <td style="padding: 5px; border: 3px solid black;">Phone</td>
+            <td style="padding: 5px; border: 3px solid black;">for Boost</td>
+            <td style="padding: 5px; border: 3px solid black;">Mobile</td>
+            <td style="padding: 5px; border: 3px solid black;">: You can download apps ...</td>
+            <td style="padding: 5px; border: 3px solid black;">Electronics:</td>
+            <td style="padding: 5px; border: 3px solid black;">See all 7,942,614 items</td>
+        </tr>
+        <tr>
+            <td style="padding: 5px; border: 3px solid black;">Samsung Galaxy Prevail LTE White (Boost Mobile)</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">by</td>
+            <td style="padding: 5px; border: 3px solid black;">Samsung</td>
+            <td style="padding: 5px; border: 3px solid black;">$98.94</td>
+            <td style="padding: 5px; border: 3px solid black;">$129.00</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">Get it by</td>
+            <td style="padding: 5px; border: 3px solid black;">Wednesday, Apr 8</td>
+            <td style="padding: 5px; border: 3px solid black;">More Buying Choices</td>
+            <td style="padding: 5px; border: 3px solid black;">$98.00</td>
+            <td style="padding: 5px; border: 3px solid black;">new</td>
+            <td style="padding: 5px; border: 3px solid black;">(3 offers)</td>
+            <td style="padding: 5px; border: 3px solid black;">$75.00</td>
+            <td style="padding: 5px; border: 3px solid black;">used</td>
+            <td style="padding: 5px; border: 3px solid black;">(3 offers)</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">4.4 out of 5 stars</td>
+            <td style="padding: 5px; border: 3px solid black;">35</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">FREE Shipping on orders over $35</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">Cell Phones &amp; Accessories:</td>
+            <td style="padding: 5px; border: 3px solid black;">See all 7,569,275 items</td>
+        </tr>
+        <tr>
+            <td style="padding: 5px; border: 3px solid black;">Sharp Aquos Crystal Silver (Boost Mobile)</td>
+            <td style="padding: 5px; border: 3px solid black;">Sep 29, 2014</td>
+            <td style="padding: 5px; border: 3px solid black;">by</td>
+            <td style="padding: 5px; border: 3px solid black;">Sharp</td>
+            <td style="padding: 5px; border: 3px solid black;">$128.99</td>
+            <td style="padding: 5px; border: 3px solid black;">$149.99</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">More Buying Choices</td>
+            <td style="padding: 5px; border: 3px solid black;">$122.38</td>
+            <td style="padding: 5px; border: 3px solid black;">new</td>
+            <td style="padding: 5px; border: 3px solid black;">(19 offers)</td>
+            <td style="padding: 5px; border: 3px solid black;">$70.00</td>
+            <td style="padding: 5px; border: 3px solid black;">used</td>
+            <td style="padding: 5px; border: 3px solid black;">(8 offers)</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">3.9 out of 5 stars</td>
+            <td style="padding: 5px; border: 3px solid black;">290</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">FREE Shipping on orders over $35</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">Electronics:</td>
+            <td style="padding: 5px; border: 3px solid black;">See all 7,942,614 items</td>
+        </tr>
+        <tr>
+            <td style="padding: 5px; border: 3px solid black;">Nokia Lumia 530 White - No Contract (T-Mobile)</td>
+            <td style="padding: 5px; border: 3px solid black;">Oct 15, 2014</td>
+            <td style="padding: 5px; border: 3px solid black;">by</td>
+            <td style="padding: 5px; border: 3px solid black;">Nokia</td>
+            <td style="padding: 5px; border: 3px solid black;">$55.99</td>
+            <td style="padding: 5px; border: 3px solid black;">$69.99</td>
+            <td style="padding: 5px; border: 3px solid black;">(3-5 days)</td>
+            <td style="padding: 5px; border: 3px solid black;">Get it by</td>
+            <td style="padding: 5px; border: 3px solid black;">Wednesday, Apr 8</td>
+            <td style="padding: 5px; border: 3px solid black;">More Buying Choices</td>
+            <td style="padding: 5px; border: 3px solid black;">$39.99</td>
+            <td style="padding: 5px; border: 3px solid black;">new</td>
+            <td style="padding: 5px; border: 3px solid black;">(25 offers)</td>
+            <td style="padding: 5px; border: 3px solid black;">$39.99</td>
+            <td style="padding: 5px; border: 3px solid black;">used</td>
+            <td style="padding: 5px; border: 3px solid black;">(8 offers)</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">3.9 out of 5 stars</td>
+            <td style="padding: 5px; border: 3px solid black;">124</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">FREE Shipping on orders over $35</td>
+            <td style="padding: 5px; border: 3px solid black;">Product Features</td>
+            <td style="padding: 5px; border: 3px solid black;">Phone</td>
+            <td style="padding: 5px; border: 3px solid black;">8.1 features you love like Cortana, OneDrive ...</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">Cell Phones &amp; Accessories:</td>
+            <td style="padding: 5px; border: 3px solid black;">See all 7,569,275 items</td>
+        </tr>
+        <tr>
+            <td style="padding: 5px; border: 3px solid black;">Lenovo MA388 Cheap Business / Elders Flip Cell Phone 3.5 Inch with FM / Flashlight / Camera / Bluetooth, Dual...</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">by</td>
+            <td style="padding: 5px; border: 3px solid black;">Lenovo</td>
+            <td style="padding: 5px; border: 3px solid black;">$82.00</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">(3-5 days)</td>
+            <td style="padding: 5px; border: 3px solid black;">Only 13 left in stock - order soon.</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">More Buying Choices</td>
+            <td style="padding: 5px; border: 3px solid black;">$77.38</td>
+            <td style="padding: 5px; border: 3px solid black;">new</td>
+            <td style="padding: 5px; border: 3px solid black;">(6 offers)</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">3.4 out of 5 stars</td>
+            <td style="padding: 5px; border: 3px solid black;">8</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">FREE Shipping on orders over $35</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">Electronics:</td>
+            <td style="padding: 5px; border: 3px solid black;">See all 7,942,614 items</td>
+        </tr>
+        <tr>
+            <td style="padding: 5px; border: 3px solid black;">Apple iPhone 4 8GB (Black) - Verizon</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">by</td>
+            <td style="padding: 5px; border: 3px solid black;">Apple</td>
+            <td style="padding: 5px; border: 3px solid black;">$117.75</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">Only 13 left in stock - order soon.</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">More Buying Choices</td>
+            <td style="padding: 5px; border: 3px solid black;">$113.79</td>
+            <td style="padding: 5px; border: 3px solid black;">new</td>
+            <td style="padding: 5px; border: 3px solid black;">(25 offers)</td>
+            <td style="padding: 5px; border: 3px solid black;">$47.75</td>
+            <td style="padding: 5px; border: 3px solid black;">used</td>
+            <td style="padding: 5px; border: 3px solid black;">(200 offers)</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">3.7 out of 5 stars</td>
+            <td style="padding: 5px; border: 3px solid black;">1,253</td>
+            <td style="padding: 5px; border: 3px solid black;">Trade-in eligible for an Amazon gift card</td>
+            <td style="padding: 5px; border: 3px solid black;">FREE Shipping</td>
+            <td style="padding: 5px; border: 3px solid black;">Product Description</td>
+            <td style="padding: 5px; border: 3px solid black;">phone</td>
+            <td style="padding: 5px; border: 3px solid black;">carrier for details. ...</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">Electronics:</td>
+            <td style="padding: 5px; border: 3px solid black;">See all 7,942,614 items</td>
+        </tr>
+        <tr>
+            <td style="padding: 5px; border: 3px solid black;">GM Grip Easy Universal Mobile Phone Car Mount Holder Cradle for Dashboard Windshield for iPhone 6/6 plus/5s/5c...</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">by</td>
+            <td style="padding: 5px; border: 3px solid black;">General Motors</td>
+            <td style="padding: 5px; border: 3px solid black;">$5.99</td>
+            <td style="padding: 5px; border: 3px solid black;">$39.99</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">Get it by</td>
+            <td style="padding: 5px; border: 3px solid black;">Wednesday, Apr 8</td>
+            <td style="padding: 5px; border: 3px solid black;">More Buying Choices</td>
+            <td style="padding: 5px; border: 3px solid black;">$4.99</td>
+            <td style="padding: 5px; border: 3px solid black;">new</td>
+            <td style="padding: 5px; border: 3px solid black;">(2 offers)</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">4.3 out of 5 stars</td>
+            <td style="padding: 5px; border: 3px solid black;">30</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">FREE Shipping on orders over $35</td>
+            <td style="padding: 5px; border: 3px solid black;">Product Features</td>
+            <td style="padding: 5px; border: 3px solid black;">mobile phone</td>
+            <td style="padding: 5px; border: 3px solid black;">screen 3.2&quot;-6&quot;,Open max=90mm ...</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">Cell Phones &amp; Accessories:</td>
+            <td style="padding: 5px; border: 3px solid black;">See all 7,569,275 items</td>
+        </tr>
+        <tr>
+            <td style="padding: 5px; border: 3px solid black;">LG Realm Black (Boost Mobile)</td>
+            <td style="padding: 5px; border: 3px solid black;">Aug 17, 2014</td>
+            <td style="padding: 5px; border: 3px solid black;">by</td>
+            <td style="padding: 5px; border: 3px solid black;">LG</td>
+            <td style="padding: 5px; border: 3px solid black;">$39.99</td>
+            <td style="padding: 5px; border: 3px solid black;">$79.99</td>
+            <td style="padding: 5px; border: 3px solid black;">(3-5 days)</td>
+            <td style="padding: 5px; border: 3px solid black;">Get it by</td>
+            <td style="padding: 5px; border: 3px solid black;">Wednesday, Apr 8</td>
+            <td style="padding: 5px; border: 3px solid black;">More Buying Choices</td>
+            <td style="padding: 5px; border: 3px solid black;">$32.00</td>
+            <td style="padding: 5px; border: 3px solid black;">new</td>
+            <td style="padding: 5px; border: 3px solid black;">(28 offers)</td>
+            <td style="padding: 5px; border: 3px solid black;">$29.99</td>
+            <td style="padding: 5px; border: 3px solid black;">used</td>
+            <td style="padding: 5px; border: 3px solid black;">(10 offers)</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">4.3 out of 5 stars</td>
+            <td style="padding: 5px; border: 3px solid black;">412</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">FREE Shipping on orders over $35</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">Cell Phones &amp; Accessories:</td>
+            <td style="padding: 5px; border: 3px solid black;">See all 7,569,275 items</td>
+        </tr>
+        <tr>
+            <td style="padding: 5px; border: 3px solid black;">Apple iPhone 4S mobile phone 16Gb Black MD865LL/A - Virgin Mobile</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">by</td>
+            <td style="padding: 5px; border: 3px solid black;">Apple</td>
+            <td style="padding: 5px; border: 3px solid black;">$494.95</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">Only 6 left in stock - order soon.</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">More Buying Choices</td>
+            <td style="padding: 5px; border: 3px solid black;">$144.99</td>
+            <td style="padding: 5px; border: 3px solid black;">used</td>
+            <td style="padding: 5px; border: 3px solid black;">(9 offers)</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">4.5 out of 5 stars</td>
+            <td style="padding: 5px; border: 3px solid black;">22</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">FREE Shipping on orders over $35</td>
+            <td style="padding: 5px; border: 3px solid black;">Product Description</td>
+            <td style="padding: 5px; border: 3px solid black;">phone</td>
+            <td style="padding: 5px; border: 3px solid black;">is locked to the Virgin</td>
+            <td style="padding: 5px; border: 3px solid black;">Mobile</td>
+            <td style="padding: 5px; border: 3px solid black;">Network Carrier. ...</td>
+            <td style="padding: 5px; border: 3px solid black;">Electronics:</td>
+            <td style="padding: 5px; border: 3px solid black;">See all 7,942,614 items</td>
+        </tr>
+        <tr>
+            <td style="padding: 5px; border: 3px solid black;">HTC Desire 510 (A11) Blue (Virgin Mobile)</td>
+            <td style="padding: 5px; border: 3px solid black;">Oct 1, 2014</td>
+            <td style="padding: 5px; border: 3px solid black;">by</td>
+            <td style="padding: 5px; border: 3px solid black;">Virgin</td>
+            <td style="padding: 5px; border: 3px solid black;">$75.00</td>
+            <td style="padding: 5px; border: 3px solid black;">$99.99</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">Get it by</td>
+            <td style="padding: 5px; border: 3px solid black;">Thursday, Apr 9</td>
+            <td style="padding: 5px; border: 3px solid black;">More Buying Choices</td>
+            <td style="padding: 5px; border: 3px solid black;">$57.00</td>
+            <td style="padding: 5px; border: 3px solid black;">new</td>
+            <td style="padding: 5px; border: 3px solid black;">(29 offers)</td>
+            <td style="padding: 5px; border: 3px solid black;">$70.03</td>
+            <td style="padding: 5px; border: 3px solid black;">used</td>
+            <td style="padding: 5px; border: 3px solid black;">(3 offers)</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">3.6 out of 5 stars</td>
+            <td style="padding: 5px; border: 3px solid black;">407</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">FREE Shipping on orders over $35</td>
+            <td style="padding: 5px; border: 3px solid black;">Product Features</td>
+            <td style="padding: 5px; border: 3px solid black;">Mobile</td>
+            <td style="padding: 5px; border: 3px solid black;">Hotspot Capable</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">Cell Phones &amp; Accessories:</td>
+            <td style="padding: 5px; border: 3px solid black;">See all 7,569,275 items</td>
+        </tr>
+        <tr>
+            <td style="padding: 5px; border: 3px solid black;">HTC Desire 816 Black (Virgin mobile)</td>
+            <td style="padding: 5px; border: 3px solid black;">Aug 10, 2014</td>
+            <td style="padding: 5px; border: 3px solid black;">by</td>
+            <td style="padding: 5px; border: 3px solid black;">HTC</td>
+            <td style="padding: 5px; border: 3px solid black;">$179.99</td>
+            <td style="padding: 5px; border: 3px solid black;">$249.99</td>
+            <td style="padding: 5px; border: 3px solid black;">(3-5 days)</td>
+            <td style="padding: 5px; border: 3px solid black;">Get it by</td>
+            <td style="padding: 5px; border: 3px solid black;">Wednesday, Apr 8</td>
+            <td style="padding: 5px; border: 3px solid black;">More Buying Choices</td>
+            <td style="padding: 5px; border: 3px solid black;">$165.99</td>
+            <td style="padding: 5px; border: 3px solid black;">new</td>
+            <td style="padding: 5px; border: 3px solid black;">(5 offers)</td>
+            <td style="padding: 5px; border: 3px solid black;">$168.54</td>
+            <td style="padding: 5px; border: 3px solid black;">used</td>
+            <td style="padding: 5px; border: 3px solid black;">(4 offers)</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">4.6 out of 5 stars</td>
+            <td style="padding: 5px; border: 3px solid black;">866</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">FREE Shipping on orders over $35</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">Cell Phones &amp; Accessories:</td>
+            <td style="padding: 5px; border: 3px solid black;">See all 7,569,275 items</td>
+        </tr>
+        <tr>
+            <td style="padding: 5px; border: 3px solid black;">Nokia Lumia 521 T-Mobile Cell Phone - White</td>
+            <td style="padding: 5px; border: 3px solid black;">Jun 12, 2013</td>
+            <td style="padding: 5px; border: 3px solid black;">by</td>
+            <td style="padding: 5px; border: 3px solid black;">Nokia</td>
+            <td style="padding: 5px; border: 3px solid black;">$44.99</td>
+            <td style="padding: 5px; border: 3px solid black;">$149.99</td>
+            <td style="padding: 5px; border: 3px solid black;">(3-5 days)</td>
+            <td style="padding: 5px; border: 3px solid black;">Get it by</td>
+            <td style="padding: 5px; border: 3px solid black;">Wednesday, Apr 8</td>
+            <td style="padding: 5px; border: 3px solid black;">More Buying Choices</td>
+            <td style="padding: 5px; border: 3px solid black;">$39.40</td>
+            <td style="padding: 5px; border: 3px solid black;">new</td>
+            <td style="padding: 5px; border: 3px solid black;">(71 offers)</td>
+            <td style="padding: 5px; border: 3px solid black;">$23.80</td>
+            <td style="padding: 5px; border: 3px solid black;">used</td>
+            <td style="padding: 5px; border: 3px solid black;">(51 offers)</td>
+            <td style="padding: 5px; border: 3px solid black;">See newer version</td>
+            <td style="padding: 5px; border: 3px solid black;">3.8 out of 5 stars</td>
+            <td style="padding: 5px; border: 3px solid black;">2,061</td>
+            <td style="padding: 5px; border: 3px solid black;">Trade-in eligible for an Amazon gift card</td>
+            <td style="padding: 5px; border: 3px solid black;">FREE Shipping on orders over $35</td>
+            <td style="padding: 5px; border: 3px solid black;">Product Features</td>
+            <td style="padding: 5px; border: 3px solid black;">Mobile</td>
+            <td style="padding: 5px; border: 3px solid black;">Operating System: Windows</td>
+            <td style="padding: 5px; border: 3px solid black;">Phone</td>
+            <td style="padding: 5px; border: 3px solid black;">8</td>
+            <td style="padding: 5px; border: 3px solid black;">Cell Phones &amp; Accessories:</td>
+            <td style="padding: 5px; border: 3px solid black;">See all 7,569,275 items</td>
+        </tr>
+        <tr>
+            <td style="padding: 5px; border: 3px solid black;">Samsung Galaxy S III (S3) Triband White (Boost Mobile)</td>
+            <td style="padding: 5px; border: 3px solid black;">Jun 23, 2012</td>
+            <td style="padding: 5px; border: 3px solid black;">by</td>
+            <td style="padding: 5px; border: 3px solid black;">Samsung</td>
+            <td style="padding: 5px; border: 3px solid black;">$179.99</td>
+            <td style="padding: 5px; border: 3px solid black;">$399.99</td>
+            <td style="padding: 5px; border: 3px solid black;">(3-5 days)</td>
+            <td style="padding: 5px; border: 3px solid black;">Get it by</td>
+            <td style="padding: 5px; border: 3px solid black;">Wednesday, Apr 8</td>
+            <td style="padding: 5px; border: 3px solid black;">More Buying Choices</td>
+            <td style="padding: 5px; border: 3px solid black;">$179.99</td>
+            <td style="padding: 5px; border: 3px solid black;">new</td>
+            <td style="padding: 5px; border: 3px solid black;">(3 offers)</td>
+            <td style="padding: 5px; border: 3px solid black;">$115.00</td>
+            <td style="padding: 5px; border: 3px solid black;">used</td>
+            <td style="padding: 5px; border: 3px solid black;">(25 offers)</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">4.3 out of 5 stars</td>
+            <td style="padding: 5px; border: 3px solid black;">1,597</td>
+            <td style="padding: 5px; border: 3px solid black;">Trade-in eligible for an Amazon gift card</td>
+            <td style="padding: 5px; border: 3px solid black;">FREE Shipping on orders over $35</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">Cell Phones &amp; Accessories:</td>
+            <td style="padding: 5px; border: 3px solid black;">See all 7,569,275 items</td>
+        </tr>
+        <tr>
+            <td style="padding: 5px; border: 3px solid black;">Samsung Galaxy Note 4G LTE SGH-I717 Blue (AT&amp;T)</td>
+            <td style="padding: 5px; border: 3px solid black;">Feb 18, 2012</td>
+            <td style="padding: 5px; border: 3px solid black;">by</td>
+            <td style="padding: 5px; border: 3px solid black;">Samsung</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">$174.95</td>
+            <td style="padding: 5px; border: 3px solid black;">used without contract</td>
+            <td style="padding: 5px; border: 3px solid black;">(2 offers)</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">See newer version</td>
+            <td style="padding: 5px; border: 3px solid black;">4.2 out of 5 stars</td>
+            <td style="padding: 5px; border: 3px solid black;">54</td>
+            <td style="padding: 5px; border: 3px solid black;">Trade-in eligible for an Amazon gift card</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">Product Features</td>
+            <td style="padding: 5px; border: 3px solid black;">Mobile</td>
+            <td style="padding: 5px; border: 3px solid black;">Hotspot service)</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">&nbsp;</td>
+            <td style="padding: 5px; border: 3px solid black;">Electronics:</td>
+            <td style="padding: 5px; border: 3px solid black;">See all 7,942,614 items<br />
+            &nbsp;</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+<hr>
+<h4 id="how-i-came-to-use-it">How I came to use it</h4>
+<p>In my  project <a href="http://development.weather-view.divshot.io/">weathertest</a> which is,sadly, will never leave it dev status I had to scrape tons of continuous data from different sources. I used <strong>DEPTA</strong> to avoid complexities with manual <strong>xpath</strong> or <strong>RegExp</strong> type scraping.</p>
+<p>Take a look at the great  implementation of this algorithm <a href="https://github.com/scrapinghub/pydepta">here</a></p>
+<hr>
+<p>P.S This is my understanding of this algorithm. If you find it wrong somehow, I am eager to know. Please, write to mklimoff at gmail.com</p>
+<p><em>This post is for education purposes only. Author does not bear any legal  responisbility regarding this post</em></p>
+
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES * * */
+      var disqus_shortname = 'vbifrkbvjd';
+      
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>  
+</div>
+
+
+    </div>
+  </div>    
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!-- blogPosts:text[] -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en">
+<head>
+  <title>Michael's blog</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="../main.css">
+  <link rel="stylesheet" type="text/css" href="../highlight/styles/solarized_dark.css">
+  <script type="text/javascript"  src="../jquery.min.js"></script>
+  <script type="text/javascript"  src="../main.js"></script>
+  <script type="text/javascript"  src="../highlight/highlight.pack.js"></script>
+  
+</head>
+<body>
+  <div class="mainSection">
+    <div id="navigation">
+      <div id="gertruda">
+	<a href="../index.html" class="stripHREF" id="symbol">
+	</a>
+	<div id="slogan">
+	</div>
+      </div>
+      <div id="spacer"></div>	
+      <!-- tag.name:string -->
+<!-- tag.size:number -->
+<!-- tagsList:tag[] -->
+<!-- selectedTagSet:set<string> -->
+<div class="tagContainer">
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="Architecture.html" style="font-size:2.8vh;">Architecture</a>
+    
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="Contacts.html" style="font-size:2.8vh;">Contacts</a>
+    
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="DEPTA.html" style="font-size:2.8vh;">DEPTA</a>
+    
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="DataMining.html" style="font-size:2.8vh;">DataMining</a>
+    
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="GoLang.html" style="font-size:2.8vh;">GoLang</a>
+    
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="Hello.html" style="font-size:2.8vh;">Hello</a>
+    
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="TypeScript.html" style="font-size:2.8vh;">TypeScript</a>
+    
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="debian.html" style="font-size:3.9vh;">debian</a>
+    
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="flask.html" style="font-size:2.8vh;">flask</a>
+    
+  
+    
+      		   
+    		   
+    
+        <a class="tag bigTag stripHREF " href="hour-of-coding.html" style="font-size:5vh;">hour-of-coding</a>
+    
+  
+    
+      
+    		   
+    
+        <span class="tag tag__selected stripHREF smallTag" href="/tag/immutable.js" style="font-size:2.8vh;">immutable.js</span>
+    
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="jinja2.html" style="font-size:2.8vh;">jinja2</a>
+    
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="nameConvention.html" style="font-size:2.8vh;">nameConvention</a>
+    
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="play-video.html" style="font-size:2.8vh;">play-video</a>
+    
+  
+    
+      		   
+    		   
+    
+        <a class="tag bigTag stripHREF " href="python.html" style="font-size:6.1vh;">python</a>
+    
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="scraping.html" style="font-size:2.8vh;">scraping</a>
+    
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="static-typing.html" style="font-size:3.9vh;">static-typing</a>
+    
+  
+    
+      		   
+    		   
+    
+        <a class="tag bigTag stripHREF " href="tutorial.html" style="font-size:7.2vh;">tutorial</a>
+    
+  
+    
+      
+    		   
+    
+        <a class="tag smallTag stripHREF " href="typescript.html" style="font-size:2.8vh;">typescript</a>
+    
+  
+</div>    
+
+    </div>
+    <div id="content">
+      <!-- <h3>Hello I am Michael. I write stuff and play piano</h3> -->
+      
+  
+    <!-- text:string -->
+    <div class="blogPost">
+      <div class="header">
+        <span class="content__halfLineLeft"></span>
+        <a href="../post/758761609.html" class="content__Symbol stripHREF">&infin;</a>
+        <span class="content__halfLineRight"></span>
+       	<div class="blogPostTags">
+       	  
+            
+              <span class="tagInLine__selected stripHREF" href="/tag/immutable.js">immutable.js</span>
+              
+       	  
+            
+     	      <a class="tagInline stripHREF" href="TypeScript.html">TypeScript</a>
+      	      
+       	  
+            
+     	      <a class="tagInline stripHREF" href="tutorial.html">tutorial</a>
+      	      
+       	  
+       	</div>
+	<div class="dateElement">
+	  2015.05.17
+	</div>
+      </div>
+      <div class="postContent buttonFinder">
+        <h2 id="how-to-make-immutable-record-play-nicely-with-typescript">How to make immutable Record play nicely with typescript</h2>
+<p>For my current work, I need support for TypeScript with Immutable.js.
+During my studying. I realised, that <strong>Record</strong> structure in Immutable.js has named parameters. So. It actually, acts like a JavaScript object.
+But, with several differences. But,TypeScript does not work good with it.
+So. I tried to find a solution</p>
+<h4 id="objective">Objective</h4>
+<p>Make immutable.js type Record work with typechecking in TypeScript</p>
+<h4 id="solution">Solution</h4>
+<pre><code>///&lt;reference path=&#39;../node_modules/immutable/dist/immutable.d.ts&#39;/&gt;
+// Declare our interface
+interface IMeta {
+    editingTagId:     number
+    editingNodeRowid: number
+    tagFontMagnifier: number
+    minTagFont:       number
+    maxTagFont:       number
+}
+// Make composite interface
+interface IMetaComposite extends Immutable.Map,IMeta {}
+// Make Record
+var metaRecord = Immutable.Record({
+    editingTagId:     0,
+    editingNodeRowid: 0,
+    tagFontMagnifier: 1,
+    minTagFont:       14,
+    maxTagFont:       20
+})
+// Cast composite type
+var meta = &lt;IMetaComposite&gt;(new metaRecord)
+// Result. Actually compiles. IDE support works:
+meta.editingTagId
+meta.set
+meta.minTagFont
+</code></pre><h4 id="conclusion">Conclusion</h4>
+<p>This is not the best solution. But this is enough for my humble needs.</p>
+
+      </div>
+      <button class="openMore__button" href="/post/758761609">&dArr;</button>
+    </div>
+    
+
+    </div>
+  </div>    
+</body>
+</html>
