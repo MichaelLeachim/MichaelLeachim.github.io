@@ -190,13 +190,16 @@ code {
     margin-right: 2.35765%;
     width: 14.70196%;
     margin-right: 0;
+    text-decoration: none;
+    text-align: center;
     background-color: white;
     border: solid;
+    color: black;
     font-size: 36px; }
     .blogPost .openMore__button:last-child {
       margin-right: 0; }
   .blogPost .openMore__button:hover {
-    background-color: gray;
+    background-color: black;
     color: white; }
   .blogPost .openMore__button:active {
     background-color: black;

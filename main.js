@@ -57,13 +57,13 @@ $(document).ready(function(){
         hljs.highlightBlock(block);
     });
 
-    $(".openMore__button").on("click",function(e) {
-        $(e.target).attr("href")
-        document.location.href =  $(e.target).attr("href")
-
-        //var postContent = $(this).parent().children().filter(".buttonFinder")
-        //postContent.toggleClass("postContent")
-    })
+    //$(".openMore__button").on("click",function(e) {
+    //    $(e.target).attr("href")
+    //    document.location.href =  $(e.target).attr("href")
+    //
+    //    //var postContent = $(this).parent().children().filter(".buttonFinder")
+    //    //postContent.toggleClass("postContent")
+    //})
 
     
     // put awat for better day
