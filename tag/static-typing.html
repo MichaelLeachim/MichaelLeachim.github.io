@@ -143,7 +143,7 @@
       
     		   
     
-        <a aclass="tag tag__selected stripHREF smallTag" href="static-typing.html" style="font-size:3.9vh;">static-typing</a>
+        <a aclass="tag tag__selected stripHREF smallTag" href="static-typing.html" style="font-size:2.8vh;">static-typing</a>
     
   
     
@@ -261,7 +261,7 @@ when <em>internal modules</em> are about to glue your js files into one.
 You cannot use internal and external modules  at the same time.
 And there are more intricate delicacies, like, you cannot glue module from different files if you use external system. And You can if you use internal.
 So, for this I was going to kill someone, untill I made a hack solution</p>
-<h4 id="hack-solution-no-young-and-sensitive-coders-allowed-">Hack solution(No young and sensitive coders allowed)</h4>
+<h4 id="hack-solution">Hack solution</h4>
 <p>Here is the schema I came, when I bump my head enough.
 Assume that I am working  in <em>node-webkit</em>. So here it is:</p>
 <ul>
@@ -280,65 +280,6 @@ window.fs    = require(&quot;fs-extra&quot;)
 
       </div>
       <a class="openMore__button" href="../post/1016805251.html">&dArr;</a>
-    </div>
-  
-    <!-- text:string -->
-    <div class="blogPost">
-      <div class="header">
-        <span class="content__halfLineLeft"></span>
-        <a href="../post/1321891940.html" class="content__Symbol stripHREF">&infin;</a>
-        <span class="content__halfLineRight"></span>
-       	<div class="blogPostTags">
-       	  
-            
-              <span class="tagInLine__selected stripHREF" href="/tag/static-typing">static-typing</span>
-              
-       	  
-       	</div>
-	<div class="dateElement">
-	  2015.03.14
-	</div>
-      </div>
-      <div class="postContent buttonFinder">
-        <h2 id="how-i-came-to-use-static-typing">How I came to use static typing</h2>
-<p>I have been &quot;dynamic&quot; for the most of my career in programming(Which is not a lot,for about 3 years of actual development in python and js.)</p>
-<p>Being dynamic was not because of some conscious decision.</p>
-<p>Just, when you start programming(having no CS background) dynamic typing seems less mundane, and more appealing for someone outside of development.</p>
-<p>Now, nearly a month ago I switched my preferences to static typing languages, and here I am to explain why.</p>
-<p>During my work, I found out,and, I sure, most of software engineers do, that  programming mostly
-is not about crunching numbers,  but about connection in general.</p>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>I would formulate this software development principle  as knowledge about connection and composition.</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<h4 id="let-me-elaborate-">Let me elaborate.</h4>
-<p>When You are writing a new program it is about 80% of connection other people code in a new way than about writing some genuinely new code.
-So that is why, program language  matter less than  having good  libraries for any possible case.</p>
-<p>This principle directly applies to static typing.
-Because static  typing <em>is</em>  about  connecting things. And compiler will tell you, if you connected them wrong.
-For example:</p>
-<ul>
-<li>It is not about withdraw(account_id:number,sum:number).</li>
-<li>It is about withdraw(account:Account,sum:MoneyManager).</li>
-</ul>
-<p>In the second case, you defined what Account is, and what MoneyManager is.</p>
-<p>And withdraw will only work on accounts, and MoneyManagers.</p>
-<p>So, when You forgot, what is withdraw about, You can always look at signature, look at definition of account and sum.
-It allows you to write deeper programs, you are not restricted in connecting things just by numbers and strings. 
-And you will never mistake pipes. And if you will, compiler will tell you about it.
-I deliberately do not mention obvious:</p>
-<ul>
-<li>IDE support</li>
-<li>ease of understanding</li>
-<li>speed of compiled program</li>
-</ul>
-<p>Because everybody already knows that.</p>
-
-      </div>
-      <a class="openMore__button" href="../post/1321891940.html">&dArr;</a>
     </div>
     
 
